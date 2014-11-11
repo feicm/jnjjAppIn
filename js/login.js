@@ -448,17 +448,20 @@ var Login = (function () {
                             submit.addEventListener('click', loginListener, false);
                         }
                     }).fail(function (msg) {
+                        console.dir(msg);
                         Wisp.UI.progressDialog.remove();
                         alert('登录失败!\n请检查网络是否连接正常！');
                         submit.addEventListener('click', loginListener, false);
                     });
-                }).fail(function (data) { //获取个人信息失败
+                }).fail(function (msg) { //获取个人信息失败
+                    console.dir(msg);
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败！\n请检查网络是否连接正常！');
                     submit.addEventListener('click', loginListener, false);
                 });
                 break;
         }
-    }
+    };
     GetLastUser();
 })();
+console.log('Git test info ignore!!');
