@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
+    <title>${content.title}</title>
+    <link rel="stylesheet" href="config/html/css/common.css" type="text/css" />
+    <link rel="stylesheet" href="config/html/css/reset.css" type="text/css" />
+</head>
+<body class="m-3-2">
+  <section class="bd">
+      <div class="tt fs12">${content.title}</div>
+      <div class="tips fs8 ovh">
+          <span class="fl">${content.author!'济南交警'}</span>
+          <span class="fr">${content.releaseDate}</span>
+      </div>
+      <div class="ct">
+          ${txt!}
+<!--
+          <p>更多阅读：</p>
+          [@cms_content_list channelId='' count='10' orderBy='4' titLen='12' channelOption='1']
+		  [#list tag_list as a]
+		  <div class="tips fs8 ovh">
+            <span class="fl"><a href="${a.url}" title="${a.title}" target="_blank">[@text_cut s=a.title len=titLen /]</a></span>
+            <span class="fr">${a.date}</span> 
+            </div>
+          [/#list]
+          [/@cms_content_list]
+          <br />
+-->
+      </div>
+  </section>
+
+  <!--<footer class="ft">
+      <button class="btn fs8">发表评论</button>
+  </footer>-->
+</body>
+</html>

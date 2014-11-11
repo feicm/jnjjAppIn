@@ -1,0 +1,689 @@
+/*reset*/
+.fs {
+    font-size : 18px
+}
+
+.fs6 {
+    font-size : .6em
+}
+
+.fs7 {
+    font-size : .7em
+}
+
+.fs8 {
+    font-size : .8em
+}
+
+.fs9 {
+    font-size : .9em
+}
+
+.fs10 {
+    font-size : 1em
+}
+
+.fs11 {
+    font-size : 1.1em
+}
+
+.fs12 {
+    font-size : 1.2em
+}
+
+.fs13 {
+    font-size : 1.3em
+}
+
+.fs14 {
+    font-size : 1.4em
+}
+
+.fs15 {
+    font-size : 1.5em
+}
+
+.fl {
+    float : left
+}
+
+.fr {
+    float : right;
+}
+.login-btn-hover{background: #D37605 !important;}
+.btn-hover{background: #00406A !important;}
+.camera-btn-hover img{background: #0C79BE;box-shadow: 1px 1px 15px #0C79BE}
+.ovh {
+    overflow : hidden;
+}
+
+body {
+    background : #f6f6f6;
+}
+
+.mgt10 {
+    margin-top : 10px
+}
+.ui-circle-pic{
+    overflow:hidden;
+    display:inline-block;
+    width: 4em;
+    height: 4em;
+    border-top-left-radius: 999px;
+    border-top-right-radius: 999px;
+    border-bottom-right-radius: 999px;
+    border-bottom-left-radius: 999px;
+    border-radius: 999px;
+    background-color: #fff;
+    background-clip: padding-box;
+    padding: 10px;
+    margin-bottom: 1.5em;
+}
+.ui-circle-pic img{
+    width: 75px;
+    height: 120px;
+    border: 0;
+}
+/*--------------2-login.html-------*/
+.m-log{
+    background: url(../images/big_bg.jpg);
+    background-size: cover;
+}
+.m-log .hd {
+    width       : 100%;
+    height      : 2.8em;
+    line-height : 2.8em;
+    text-align  : center;
+    color       : #fff;
+    background  : #0c79be;
+}
+
+.m-log .bd {
+    padding: 2em .6em;
+    text-align: center;
+}
+
+.m-log .bgi-un {
+    float                  : left;
+    box-sizing             : border-box;
+    height: 3em;
+    width: 2.5em;
+    margin-right: -2.5em;
+    border-top             : 1px solid #e0e0e0;
+    border-bottom          : 0.1em solid #e0e0e0;
+    border-top-left-radius : .4em;
+    background-color       : #fff;
+    background-image       : url(../images/user_normal.png);
+    background-size: 20px 20px;
+    background-position    : center center;
+    background-repeat      : no-repeat;
+}
+
+.m-log .ipt-un {
+    float: right;
+    width: 100%;
+    height                  : 3em;
+    border-top              : 1px solid #e0e0e0;
+    border-bottom           : 0.1em solid #e0e0e0;
+    border-top-right-radius : .4em;
+    border-top-left-radius: .4em;
+    padding-left: 2.5em;
+}
+.m-log .ipt-un:focus + label,.m-log .ipt-pw:focus + label{border-left: .2em solid #FF8E01}
+.m-log .ipt-un:focus + label{background-image : url(../images/user_hover.png);}
+.m-log .ipt-pw:focus + label{background-image : url(../images/password_hover.png);}
+.m-log .bgi-pw {
+    float                     : left;
+    box-sizing                : border-box;
+    height                    : 3em;
+    width: 2.5em;
+    margin-right: -2.5em;
+    border-bottom             : 0.1em solid #e0e0e0;
+    border-bottom-left-radius : .4em;
+    background-color          : #fff;
+    background-image          : url(../images/password_normal.png);
+    background-size: 12px 20px;
+    background-position       : center center;
+    background-repeat         : no-repeat;
+}
+
+.m-log .ipt-pw {
+    width: 100%;
+    height                     : 3em;
+    border-bottom              : .1em solid #e0e0e0;
+    border-bottom-right-radius : .4em;
+    border-bottom-left-radius: .4em;
+    float: right;
+    padding-left: 2.5em;
+}
+
+.m-log .rem-pw {
+    color       : #b3b3b3;
+    line-height : 3em;
+}
+
+.m-log .btn {
+    display       : block;
+    width         : 100%;
+    height        : 3em;
+    color         : #fff;
+    background    : #ff8e01;
+    border-radius : .3em;
+    box-shadow    : 0 1px 1px #bb6802;
+}
+
+/*--------------3-2.html--------------*/
+.m-3-2 .hd {
+    box-sizing  : border-box;
+    width       : 100%;
+    height      : 2.5em;
+    padding     : 0 .6em 0;
+    line-height : 2.5em;
+}
+
+.m-3-2 .hd a {
+    color : #666666;
+}
+
+.m-3-2 .hd a:before {
+    content             : "";
+    display             : block;
+    float               : left;
+    height              : 2.5em;
+    width               : 15px;
+    background-image    : url(../images/bgi-bk-1.png);
+    background-size     : 15px 20px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+}
+
+.m-3-2 .bd {
+    padding     : .5em .6em 0 .6em;
+    background  : #f6f6f6;
+    line-height : 1.2;
+}
+
+.m-3-2 .bd .tt {
+    padding     : 2px 1px;
+    font-weight : bold;
+}
+
+.m-3-2 .bd .tips {
+    color : #878787;
+}
+
+.m-3-2 .bd .ct {
+    padding     : .5em 0;
+    text-indent : 2em;
+    line-height : 1.5;
+}
+
+.m-3-2 .bd .ct span {
+    font-size : 18px !important;
+}
+
+.m-3-2 .bd .ct p {
+    margin-bottom : .6em;
+}
+
+.m-3-2 .bd .ct img {
+    max-width  : 90%;
+    margin     : 1em auto !important;
+    padding    : 3px !important;
+    background : #FFF;
+    border     : 1px solid #CCC !important;
+}
+
+.m-3-2 .ft {
+    box-sizing : border-box;
+    height     : 2.5em;
+    width      : 100%;
+    padding    : .25em .6em;
+    text-align : center;
+    background : #fff;
+}
+
+.m-3-2 .ft .btn {
+    width      : 100%;
+    height     : 2.5em;
+    border     : .1em solid #999999;
+    color      : #666666;
+    background : #fff;
+}
+
+/*-------4-1-1.html-----------*/
+.m-4-1-1 .hd {
+    box-sizing  : border-box;
+    width       : 100%;
+    height      : 2.5em;
+    padding     : 0 .6em 0;
+    line-height : 2.5em;
+    text-align  : center;
+    color       : #fff;
+    background  : #0c79be;
+}
+
+.m-4-1-1 .hd a {
+    color : #fff;
+}
+
+.m-4-1-1 .hd .bk:before {
+    content             : "";
+    display             : block;
+    float               : left;
+    height              : 3.1em;
+    width               : 20px;
+    background-image    : url(../images/bgi-bk-2.png);
+    background-size     : 18px 24px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+}
+
+.m-4-1-1 .hd .pp {
+    height              : 2.5em;
+    width               : 2.1em;
+    background-image    : url(../images/bgi-pp.png);
+    background-size     : 23px 31px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+}
+
+/*-------4-1-3.html-----------*/
+.m-4-1-3 .hd {
+    box-sizing  : border-box;
+    width       : 100%;
+    height      : 2.5em;
+    padding     : 0 .6em;
+    line-height : 2.5em;
+    text-align  : center;
+    color       : #fff;
+    background  : #0c79be;
+}
+
+.m-4-1-3 .hd a {
+    color : #fff;
+}
+
+.m-4-1-3 .hd .bk:before {
+    content             : "";
+    display             : block;
+    float               : left;
+    height              : 3.1em;
+    width               : 20px;
+    background-image    : url(../images/bgi-bk-2.png);
+    background-size     : 18px 24px;
+    background-position : center center;
+    background-repeat   : no-repeat;
+}
+
+.m-4-1-3 .hd .pp {
+    height : 2.5em;
+    width  : 2.1em;
+}
+
+.m-4-1-3 .bd div {
+    box-sizing  : border-box;
+    width       : 100%;
+    line-height : 2.2;
+    padding     : 0 .6em;
+}
+
+.m-4-1-3 .bd div:nth-child(even) {
+    background : #e8e8e8;
+}
+
+/*公共样式*/
+.btn {
+    display       : inline-block;
+    width         : 40%;
+    height        : 2.5em;
+    line-height   : 1.5;
+    margin-top    : 20px;
+    padding       : 10px;
+    border-radius : 4px;
+    background    : #0C79BE;
+    text-align    : center;
+    color         : #FFF;
+    box-sizing    : border-box;
+}
+
+.btn-01 {
+    background : #aaa
+}
+
+.block {
+    display : block;
+    width   : 100%
+}
+
+.f-input {
+    width         : 100%;
+    height        : 2.5em;
+    border        : 1px solid #EEE;
+    border-radius : 4px;
+    font-size     : .9em;
+    padding       : 2px 5px 2px 15px;
+}
+
+.ip-g {
+    position : relative;
+}
+
+.ip-g .txt-ex {
+    position  : absolute;
+    left      : 1em;
+    top       : 2.6em;
+    font-size : 16px;
+}
+
+.ip-g .f-input {
+    padding-left : 2.7em;
+}
+
+.select {
+    -webkit-appearance  : none;
+    background-image    : url(../images/arrdown_normal.png);
+    background-size     : 1.5em .8em;
+    background-position : 95% center;
+    background-repeat   : no-repeat;
+    background-color: #FFF;
+}
+
+#type_dummy, #type-01_dummy, #add_dummy, #way_dummy, #hpzl_dummy, #zjlx_dummy {
+    width               : 100%;
+    height              : 2.5em;
+    border              : 1px solid #EEE;
+    border-radius       : 4px;
+    font-size           : .9em;
+    padding             : 2px 5px 2px 15px;
+    background-image    : url(../images/arrdown_normal.png);
+    background-size     : 1.5em .8em;
+    background-position : 95% center;
+    background-repeat   : no-repeat;
+}
+
+/*违法上传*/
+.bd {
+}
+
+.camera {
+    width       : 100%;
+    height      : 5em;
+    line-height : 1;
+    padding     : .5em;
+    box-sizing  : border-box;
+}
+
+.camera a {
+    display      : inline-block;
+    width        : 20%;
+    height       : 3em;
+    margin-right : 5px;
+    text-align   : center;
+}
+
+.camera a em {
+    font-size : .8em
+}
+
+.camera img {
+    max-width     : 100%;
+    max-height    : 100%;
+    border-radius : 6px;
+    padding: 1px;
+}
+
+.camera .take-photo {
+    color : #aaa
+}
+
+.wf-form {
+    padding : .5em
+}
+
+.wf-form label {
+    display    : inline-block;
+    margin-top : 8px;
+    font-size  : .9em
+}
+
+/*打印页面*/
+.print-bd {
+    background     : #fff;
+    padding-bottom : 1em;
+}
+
+.print {
+    overflow    : hidden;
+    border      : 2px solid #000;
+    box-sizing  : border-box;
+    margin      : 10px;
+    font-size   : 28px;
+    padding     : 4px;
+    line-height : 1.5;
+}
+
+.print .t1 {
+    font-size   : 32px;
+    text-align  : center;
+    height      : 2em;
+    line-height : 2;
+    font-weight : bold;
+}
+
+.print .t2 {
+    text-align : center;
+    color      : #760A0A;
+    font-size  : .9em;
+}
+
+.print .label {
+    display : inline-block;
+    width   : 40%;
+}
+
+.print .label-01 {
+    width : 100%
+}
+
+.print .ip {
+    display       : inline-block;
+    background    : #fff;
+    border        : 0 none;
+    border-bottom : 1px solid #000;
+    width         : 55%;
+}
+
+.print .ip-01 {
+    width : 100%;
+}
+
+.print .type-c {
+    overflow : hidden;
+    padding  : .3em;
+}
+
+.print .under-line {
+    border-bottom : 1px solid #000;
+    font-weight   : bold
+}
+
+.print .p1 {
+    width         : 100%;
+    height        : 4em;
+    border-bottom : 2px solid #000;
+    text-align    : right;
+    line-height   : 1.8;
+}
+
+.print p {
+    text-indent : 2em;
+    line-height : 1.5;
+}
+
+.print input:not(.ip) {
+    display : none
+}
+
+.tc {
+    text-align : center
+}
+
+.print .st {
+    font-weight : bold
+}
+
+.print input:not(.ip) + label {
+    padding   : 0 .5em 0 1.2em;
+    display   : inline-block;
+    position  : relative;
+    font-size : 1em;
+    color     : #000;
+}
+
+.print input:not(.ip):checked + label:after {
+    content       : '\2714';
+    position      : absolute;
+    top           : .7em;
+    left          : -.2em;
+    color         : #FFF;
+    display       : inline-block;
+    border        : 1px solid;
+    width         : 1.7em;
+    height        : 1.7em;
+    text-align    : center;
+    border-radius : 3px;
+    background    : #000;
+    border        : 1px solid #000;
+}
+
+.print input:not(.ip) + label:after {
+    content       : '';
+    font-size     : 14px;
+    position      : absolute;
+    top           : .6em;
+    left          : 0;
+    color         : #99A1A7;
+    display       : inline-block;
+    border        : 1px solid;
+    width         : 20px;
+    height        : 20px;
+    text-align    : center;
+    border-radius : 3px;
+}
+
+/*密码修改*/
+.r-pwd {
+    width        : 95%;
+    height       : auto;
+    margin-left  : auto;
+    margin-right : auto;
+    margin-top   : 2em;
+    box-sizing   : border-box;
+}
+
+.r-pwd label {
+    float         : left;
+    margin-bottom : -3em;
+    width         : 6em;
+    font-size     : .9em;
+    text-align    : right;
+    height        : 2.5em;
+    line-height   : 2.5;
+}
+
+.r-pwd .ip {
+    margin-left   : 5.5em;
+    margin-bottom : 1em;
+    width         : 65%;
+    height        : 2.5em;
+    padding       : 10px;
+    border-radius : 4px;
+    box-sizing    : border-box;
+}
+
+.r-pwd .btn {
+    margin-left : 5.5em;
+}
+
+/*查询结果tab*/
+.ui-grid-b {
+    overflow : hidden;
+}
+
+.ui-grid-b > :nth-child(n) {
+    width : 33.333%;
+}
+
+.ui-grid-b .ui-block-a {
+    clear : left;
+}
+
+.ui-block-a, .ui-block-b, .ui-block-c {
+    margin             : 0;
+    padding            : 0;
+    border             : 0;
+    float              : left;
+    min-height         : 1px;
+    -webkit-box-sizing : border-box;
+    -ms-box-sizing     : border-box;
+    box-sizing         : border-box;
+}
+
+.tab {
+    overflow : hidden;
+    width    : 100%;
+    height   : 2.6em;
+}
+
+.tab a {
+    display       : inline-block;
+    height        : 100%;
+    line-height   : 2.6;
+    background    : #F2F2F1;
+    color         : #444;
+    border-right  : 0 none;
+    border-bottom : 2px solid #CECECE;
+    text-align    : center;
+}
+
+.tab a.active {
+    border-bottom : 4px solid #3879D9;
+    background    : #F2F2F1;
+    color         : #3879D9;
+}
+
+.wzcx-t {
+    height      : 3em;
+    line-height : 3em;
+    text-align  : center
+}
+
+.wzcx-result {
+    overflow   : hidden;
+    padding    : 0 .5em;
+    box-sizing : border-box;
+}
+
+.wzcx-result li a {
+    display             : block;
+    width               : 100%;
+    height              : 2.5em;
+    line-height         : 2.2;
+    border-radius       : 4px;
+    font-size           : .9em;
+    padding             : 2px 5px 2px 15px;
+    background-image    : url(../images/arr_r.png);
+    background-size     : .5em 1em;
+    background-position : 95% center;
+    background-repeat   : no-repeat;
+    background-color    : #fff;
+    margin-bottom       : .5em;
+    box-sizing          : border-box;
+    color:#111;
+}
+
+.wzcx-result li a:hover,.wzcx-result li a:active {
+    background-color : #Fdfdfd;
+    color: #555;
+}

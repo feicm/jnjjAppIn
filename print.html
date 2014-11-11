@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>违法上报-提交结果</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maxmum-scale=1.0,user-scalable=no"/>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body class="print-bd">
+<div class="print">
+    <h1 class="t1">违法停车告知单</h1>
+    <h2 class="t2" id="bh"></h2>
+    <label class="label" for="num">车牌号码：</label>
+    <input class="ip" id="num" />
+    <label class="label" for="color">车身颜色：</label>
+    <input class="ip" id="color" />
+    <span class="label label-01" >车辆类型：</span>
+    <div class="type-c">
+        <input type="radio" id="01" name="type" />
+        <label for="01">大型客车</label>
+        <input type="radio" id="02" name="type"/>
+        <label for="02">中型客车</label>
+        <input type="radio" id="03" name="type"/>
+        <label for="03">小型客车</label>
+        <input type="radio" id="04" name="type"/>
+        <label for="04">大型货车</label>
+        <input type="radio" id="05" name="type"/>
+        <label for="05">小型货车</label>
+        <input type="radio" id="06" name="type"/>
+        <label for="06">摩托车</label>
+        <input type="radio" id="07" name="type"/>
+        <label for="07">其他</label>
+    </div>
+    <span class="label label-01">号牌颜色：</span>
+    <div class="type-c">
+        <input type="radio" id="08" name="color"/>
+        <label for="08">黄色</label>
+        <input type="radio" id="09" name="color"/>
+        <label for="09">蓝色</label>
+        <input type="radio" id="010" name="color"/>
+        <label for="010">黑色</label>
+        <input type="radio" id="011" name="color"/>
+        <label for="011">其他</label>
+    </div>
+    <span class="label label-01">违法停车时间：</span>
+    <input class="ip ip-01" id="cur_time">
+    <span class="label label-01">违法停车地点：</span>
+    <input class="ip ip-01" id="cur_add">
+    <p>该机动车在上述时间，地点停车，违反了《道路交通安全法》第56条规定。请于3日后15日内持本告知单，到
+        <b class="under-line" id="dd"></b>接受处理 （地址：<b class="under-line" id="dz"></b>，
+        电话：<b class="under-line" id='dh'></b>）。
+    </p>
+    <p class="p1">交通警察：<b class="name" id="xm"></b></br>
+        <em id="b_time"></em></p>
+    <p><strong class="st">备注：</strong>机动车所有人登记的住所地址或联系电话发生变化的请及时向登记地车辆管理所申请变更备案。</p>
+</div>
+<div class="tc">一式两份，一份贴于机动车上，一份附卷</div>
+</body>
+<script src="js/zepto.min.js"></script>
+<script src="js/common.js"></script>
+<script src="js/print.js"></script>
+</html>
