@@ -464,4 +464,3 @@ var Login = (function () {
     };
     GetLastUser();
 })();
-console.log('Git test info ignore!!');
