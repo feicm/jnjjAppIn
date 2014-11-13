@@ -97,8 +97,6 @@ $(function () {
     reset_btn.on('click', resetListener); //重置按钮事件注册
     var add_input = $('#add');
     var action_input = $('#action');
-    var add_s = add_input.parent().find('.btn');
-    var action_s = action_input.parent().find('.btn');
     var isUpdata = 1;//更新标识
     var oldValue; //保存上次值
     var Type;//保存上次事件对象————用id标识唯一行
@@ -146,16 +144,14 @@ $(function () {
     //含搜索按钮的input值变化触发函数
     function searchInputListener() {
         var s_btn = $(this).parent().find('.btn');
+        var data_for = s_btn.attr('data-for');
         var isActive = s_btn.attr('active') || false;
         if ( $(this).val() ) {
             if ( isActive === 'true' ) return;
             s_btn.css('background', '#0C79BE');
             s_btn.attr('active', true);
-            add_s.on('click', function () {
-                searchListener($(this), 'add');
-            });
-            action_s.on('click', function () {
-                searchListener($(this), 'action');
+            s_btn.on('click', function () {
+                searchListener($(this), data_for);
             });
         } else {
             s_btn.css('background', '#ddd');
@@ -164,14 +160,14 @@ $(function () {
     }
 
     //点击搜索事件函数
-    function searchListener(dom, id) {
+    function searchListener(dom, type) {
         var status = dom.attr('active');
         if ( status === 'true' ) {
-            if(id='add'){
-                autoCompListener(id, url_add);
+            if(type='add'){
+                autoCompListener(type, url_add);
             }
-            if(id='action'){
-                autoCompListener(id, url_action);
+            if(type='action'){
+                autoCompListener(type, url_action);
             }
         }
     }

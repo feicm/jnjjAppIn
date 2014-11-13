@@ -30,12 +30,12 @@
     <div class="ip-c">
 		<label for="add">违法地点</label>
 		<input id="add" class="f-input" placeholder="请输入违法地点"/>
-        <a class="btn">搜索</a>
+        <a class="btn" data-for="add">搜索</a>
 	</div>
 	<div class="ip-c">
 		<label for="action">违法行为</label>
 		<input id="action" class="f-input" placeholder="请输入违法行为"/>
-        <a class="btn">搜索</a>
+        <a class="btn" data-for="action">搜索</a>
     </div>
     <div class="print">
         <input type="checkbox" id="print" name="type" />
