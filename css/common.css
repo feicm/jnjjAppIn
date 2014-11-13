@@ -545,9 +545,9 @@ body {
     font-size   : .6em;
     position    : absolute;
     right       : .5em;
-    top         : 1.5em;
+    top: 1.7em;
     background  : #ddd;
-    z-index     : 111;
+    z-index: 11;
 }
 
 .ip-c .f-input {
