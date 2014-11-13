@@ -9,7 +9,12 @@
         dd,//大队
         dz,//地址
         dh,//电话
-        xm;//姓名
+        xm,//姓名
+        csys,//车身颜色
+        hpys,//号牌颜色
+        cphm,//车牌号码
+        cllx,//车牌类型
+        wfdd;//违法地点
     bh = document.getElementById('bh');
     dd = document.getElementById('dd');
     dz = document.getElementById('dz');
@@ -17,7 +22,7 @@
     xm = document.getElementById('xm');
     var bmdm = jnjjApp.cookie.GetCookie("BuMenDaiMa");
     var name = jnjjApp.cookie.GetCookie("XingMing");
-    var url ="/wispcms/adapter?url="
+    var url = "/wispcms/adapter?url="
         + jnjjApp.config.requestUrl
         + "/wisp_platform/platform/vioWfcl_viewVioWfcl.action";
     $.ajax({
@@ -39,4 +44,36 @@
     }).fail(function (msg) {
         console.log('请求数据失败!!');
     });
+    var hphm = jnjjApp.cookie.GetCookie("HaoPaiHaoMa");
+    var hpzl = jnjjApp.cookie.GetCookie("HaoPaiZhongLei");
+    var wfddVal = jnjjApp.cookie.GetCookie("WeiFaDiDian");
+    csys = document.getElementById('color');
+    hpys = document.querySelectorAll('#hpys input');
+    cphm = document.getElementById('num');
+    hpzl&&(cllx = document.getElementById("0" + hpzl));
+    wfdd = document.getElementById('cur_add');
+    if ( hphm && hpzl ) {
+        var querycarUrl = "/wispcms/adapter?url="
+            + jnjjApp.config.requestUrl
+            + "/wisp_platform/platform/vehicle_viewVehicle.action";
+        $.ajax({
+            type    : 'POST',
+            url     : querycarUrl,
+            data    : {hpzl: hpzl, hphm: hphm},
+            dataType: 'json'
+        }).done(function (data) {
+            if ( data.success ) {
+                var msg = data.msg;
+                cphm.value = hphm;//填充车牌号码
+                msg.csys && (csys.value = msg.csys);//填充车身颜色
+                cllx.checked = true;//填充车牌类型
+                wfddVal && (wfdd.value = wfddVal);//填充违法地点
+                //TODO 号牌颜色填充
+            } else {
+                console.log('数据返回错误！！！');
+            }
+        }).fail(function (msg) {
+            console.log('请求数据失败!!');
+        });
+    }
 })();

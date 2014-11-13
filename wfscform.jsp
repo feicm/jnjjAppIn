@@ -21,14 +21,6 @@
 	<script src="config/html/js/wfzp.js"></script>
 </head>
 <body class="bd">
-<section class="camera ovh">
-        <span id="phone_con">
-        </span>
-    <a class="take-photo" id="take_camera">
-        <img src="config/html/images/phone_normal.png" /></br>
-        <em>点击拍照</em>
-    </a>
-</section>
 <form id="wf_upload" action="adapter" method="post" class="wf-form">
     <label for="type">车牌类型</label>
     <select class="f-input select" id="type">
@@ -38,11 +30,26 @@
     <div class="ip-c">
 		<label for="add">违法地点</label>
 		<input id="add" class="f-input" placeholder="请输入违法地点"/>
+        <a class="btn">搜索</a>
 	</div>
 	<div class="ip-c">
 		<label for="action">违法行为</label>
 		<input id="action" class="f-input" placeholder="请输入违法行为"/>
-	</div>
+        <a class="btn">搜索</a>
+    </div>
+    <div class="print">
+        <input type="checkbox" id="print" name="type" />
+        <label for="print">打印</label>
+        <a class="btn" id="go_print">打印预览</a>
+    </div>
+    <section class="camera ovh">
+        <span id="phone_con">
+        </span>
+        <a class="take-photo" id="take_camera">
+            <img src="config/html/images/phone_normal.png" /></br>
+            <em>点击拍照</em>
+        </a>
+    </section>
     <input class="btn" type="button" value='提交' id="submit_btn" ontouchstart=""/>
     <input class="btn fr" type="button" value='重置' id="reset" ontouchstart=""/>
 </form>

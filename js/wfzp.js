@@ -7,19 +7,55 @@ $(function () {
         "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
         "dataType": 'Object'
     });
-    var submit_btn = document.getElementById('submit_btn');
+    var submitBtn = document.getElementById('submit_btn');
     jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
     jnjjApp.btnHover('reset', 'btn-hover');   //重置按钮点击高亮
     jnjjApp.btnHover('take_camera', 'camera-btn-hover'); //拍照“+”按钮点击高亮
     /*
+     * 打印按钮效果及事件
+     * */
+    var print_cb = $('#print');//print checkbox
+    var go_print = $('#go_print'); //print btn
+    print_cb.on('change', function (e) {
+        var isCheck = $(this).attr('checked');
+        console.log(isCheck);
+        if ( isCheck ) {
+            go_print.css('background', '#0C79BE');
+            jnjjApp.btnHover('go_print', 'btn-hover');
+            go_print.on('click', function (e) {
+                printBtnListener();
+            });
+        } else {
+            go_print.css('background', '#ddd');
+            go_print.off('click');
+        }
+    });
+    function printBtnListener() {
+        //获取号牌种类 号牌号码 违法地点存入cookie ,并调用打印接口
+        var hpzl, hphm, wfdd;
+        hpzl = $('#type').val() - 0;
+        hphm = $('#num').val();
+        wfdd = $('#add').val();
+        console.log(hpzl);
+        console.log(hphm);
+        console.log(wfdd);
+        hpzl && jnjjApp.cookie.SetCookie('HaoPaiZhongLei', hpzl);
+        hphm && jnjjApp.cookie.SetCookie('HaoPaiHaoMa', hphm);
+        wfdd && jnjjApp.cookie.SetCookie('WeiFaDiDian', wfdd);
+        Wisp.ClientResource.Printer("open", {
+            "targetpage": 'config/html/print.html?action=print'
+        });
+    }
+
+    /*
      * 表单提交事件，分两部分：1、调用客户端上传图片；2、表单数据提交
      * */
-    submit_btn.addEventListener('click', function (e) {
+    submitBtn.addEventListener('click', function (e) {
         var imgpath = jnjjApp.imgPath.join(',');//图片路径
-        typeVal = $('#type').val() - 0,
-            numVal = $('#num').val(),
-            addVal = $('#add').val(),
-            actionVal = $('#action').val();
+        typeVal = $('#type').val() - 0;
+        numVal = $('#num').val();
+        addVal = $('#add').val();
+        actionVal = $('#action').val();
         if ( jnjjApp.imgPath.length == 0 ) {
             alert('请先拍摄三张照片！')
         } else if ( jnjjApp.imgPath.length < 3 ) {
@@ -61,6 +97,8 @@ $(function () {
     reset_btn.on('click', resetListener); //重置按钮事件注册
     var add_input = $('#add');
     var action_input = $('#action');
+    var add_s = add_input.parent().find('.btn');
+    var action_s = action_input.parent().find('.btn');
     var isUpdata = 1;//更新标识
     var oldValue; //保存上次值
     var Type;//保存上次事件对象————用id标识唯一行
@@ -72,6 +110,7 @@ $(function () {
         + jnjjApp.config.requestUrl
         + "/wisp_platform/platform/vioCodewfdm_listVioCodewfdm.action";
     var autoCompListener = function (type, url) {
+        console.log('发起请求');
         var dom = $('#' + type);
         var currVal = dom.val();
         oldValue !== currVal ? isUpdata = 1 : isUpdata = 0;
@@ -102,27 +141,48 @@ $(function () {
             Type = type;
             oldValue = currVal;
             isUpdata = 0;
+        }
+    };
+    //含搜索按钮的input值变化触发函数
+    function searchInputListener() {
+        var s_btn = $(this).parent().find('.btn');
+        var isActive = s_btn.attr('active') || false;
+        if ( $(this).val() ) {
+            if ( isActive === 'true' ) return;
+            s_btn.css('background', '#0C79BE');
+            s_btn.attr('active', true);
+            add_s.on('click', function () {
+                searchListener($(this), 'add');
+            });
+            action_s.on('click', function () {
+                searchListener($(this), 'action');
+            });
         } else {
-            return;
+            s_btn.css('background', '#ddd');
+            s_btn.attr('active', false);
         }
     }
-    add_input.on('keyup', function () {
-        autoCompListener('add', url_add);
-    });//按键提起时触发
-    add_input.on('focus', function () {
-        autoCompListener('add', url_add);
-    });//获取焦点时触发
-    action_input.on('keyup', function () {
-        autoCompListener('action', url_action);
-    });//按键提起时触发
-    action_input.on('focus', function () {
-        autoCompListener('action', url_action);
-    });//获取焦点时触发
+
+    //点击搜索事件函数
+    function searchListener(dom, id) {
+        var status = dom.attr('active');
+        if ( status === 'true' ) {
+            if(id='add'){
+                autoCompListener(id, url_add);
+            }
+            if(id='action'){
+                autoCompListener(id, url_action);
+            }
+        }
+    }
+
+    add_input.on('keyup', searchInputListener);//按键提起时触发
+    action_input.on('keyup', searchInputListener);//按键提起时触发
     /*
      * 拍照事件绑定
      * */
-    var take_camera = document.getElementById('take_camera');
-    if ( take_camera !== null ) { //拍照事件
+    var take_camera_btn = document.getElementById('take_camera');
+    if ( take_camera_btn !== null ) { //拍照事件
         jnjjApp.imgPath = jnjjApp.imgPath || []; //保存照片路径
         var cameraListener = function (e) {//拍照事件函数
             if ( jnjjApp.imgPath.length < 3 ) {
@@ -132,9 +192,9 @@ $(function () {
                 alert('只需拍摄三张照片！');
                 return false;
             }
-            take_camera.removeEventListener('click', cameraListener);
-        }
-        take_camera.addEventListener('click', cameraListener, false);
+            take_camera_btn.removeEventListener('click', cameraListener);
+        };
+        take_camera_btn.addEventListener('click', cameraListener, false);
     }
     /*
      * jnjjApp.uploadfileCallback 违法抓拍表单提交回调函数
@@ -154,7 +214,7 @@ $(function () {
                 value !== '' ? submitForm(value) : console.log('ImageID不存在！！！'); //表单提交
                 break;
         }
-    }
+    };
     function submitForm(value) {
         var imgId = value,
             typeVal = $('#type').val() - 0,
