@@ -11,7 +11,6 @@
         dh,//电话
         xm,//姓名
         csys,//车身颜色
-        hpys,//号牌颜色
         cphm,//车牌号码
         cllx,//车牌类型
         wfdd;//违法地点
@@ -42,15 +41,20 @@
             console.log('数据返回错误！！！');
         }
     }).fail(function (msg) {
-        console.log('请求数据失败!!');
+        console.log('请求数据失败!!' + msg);
     });
     var hphm = jnjjApp.cookie.GetCookie("HaoPaiHaoMa");
     var hpzl = jnjjApp.cookie.GetCookie("HaoPaiZhongLei");
     var wfddVal = jnjjApp.cookie.GetCookie("WeiFaDiDian");
+    var oHpys = {
+        "黄色": "08",
+        "蓝色": "09",
+        "黑色": "10",
+        "其他": "11"
+    };
     csys = document.getElementById('color');
-    hpys = document.querySelectorAll('#hpys input');
     cphm = document.getElementById('num');
-    hpzl&&(cllx = document.getElementById("0" + hpzl));
+    hpzl && (cllx = document.getElementById("0" + hpzl));
     wfdd = document.getElementById('cur_add');
     if ( hphm && hpzl ) {
         var querycarUrl = "/wispcms/adapter?url="
@@ -68,12 +72,12 @@
                 msg.csys && (csys.value = msg.csys);//填充车身颜色
                 cllx.checked = true;//填充车牌类型
                 wfddVal && (wfdd.value = wfddVal);//填充违法地点
-                //TODO 号牌颜色填充
+                msg.hpys && (document.getElementById(oHpys[msg.hpys]).checked = true);
             } else {
                 console.log('数据返回错误！！！');
             }
         }).fail(function (msg) {
-            console.log('请求数据失败!!');
+            console.log('请求数据失败!!' + msg);
         });
     }
 })();

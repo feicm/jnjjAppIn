@@ -108,7 +108,7 @@ $(function () {
         + jnjjApp.config.requestUrl
         + "/wisp_platform/platform/vioCodewfdm_listVioCodewfdm.action";
     var autoCompListener = function (type, url) {
-        console.log('发起请求');
+        //console.log('发起联想请求');
         var dom = $('#' + type);
         var currVal = dom.val();
         oldValue !== currVal ? isUpdata = 1 : isUpdata = 0;
@@ -147,7 +147,7 @@ $(function () {
         var data_for = s_btn.attr('data-for');
         var isActive = s_btn.attr('active') || false;
         if ( $(this).val() ) {
-            if ( isActive === 'true' ) return;
+            if ( isActive === 'true' ) return;//有值时仅第一次触发显示按钮和事件绑定
             s_btn.css('background', '#0C79BE');
             s_btn.attr('active', true);
             s_btn.on('click', function () {
@@ -163,10 +163,10 @@ $(function () {
     function searchListener(dom, type) {
         var status = dom.attr('active');
         if ( status === 'true' ) {
-            if(type='add'){
+            if(type==='add'){
                 autoCompListener(type, url_add);
             }
-            if(type='action'){
+            if(type==='action'){
                 autoCompListener(type, url_action);
             }
         }
