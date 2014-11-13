@@ -111,32 +111,32 @@
             console.dir(this._config);
             Wisp.CommenFunc.SendToWISPClient('post', '@@tab@@', JSON.stringify(this._config), false);
         };
-        var progressDialog={   //加载对话框
-            "show" : function (content) {
-                this.content=content;
+        var progressDialog = {   //加载对话框
+            "show"  : function (content) {
+                this.content = content;
                 Wisp.CommenFunc.SendToWISPClient('post', '@@showProgressDialog@@', JSON.stringify(this), false);
             }, //打开
             "remove": function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@dismissProgressDialog@@', '', false);
             } //移除加载对话框
         };
-        var fullScreen={   //全屏控制
+        var fullScreen = {   //全屏控制
             "open" : function () {
             }, //打开
             "close": function () {
             } //关闭
         };
-        var zoomWindow={  //窗口缩放
+        var zoomWindow = {  //窗口缩放
             "zoomIn" : function () {
             },//放大
             "zoomOut": function () {
             }//缩小
         };
         return {
-            "Init"  : Init, //初始化
+            "Init"          : Init, //初始化
             "progressDialog": progressDialog,//加载对话框
-            "fullScreen":fullScreen,//TODO 全屏
-            "zoomWindow":zoomWindow //TODO 窗口缩放
+            "fullScreen"    : fullScreen,//TODO 全屏
+            "zoomWindow"    : zoomWindow //TODO 窗口缩放
         }
     })();
     /*
@@ -149,9 +149,9 @@
                 xmlhttp = new window.XMLHttpRequest();
                 typeFlag = true;
             } catch ( e ) {
-                var ActiveXName = [ 'MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0',
+                var ActiveXName = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0',
                     'MSXML2.XMLHttp.5.0', 'MSXML2.XMLHttp.4.0', 'Msxml2.XMLHTTP',
-                    'MSXML.XMLHttp', 'Microsoft.XMLHTTP' ]
+                    'MSXML.XMLHttp', 'Microsoft.XMLHTTP'];
 
                 function XMLHttpActiveX() {
                     var e;
@@ -179,7 +179,7 @@
             return xmlhttp;
         };
         var SendToWISPClient = function (method, type, param, async) {
-            var urlPre = "AjAxSocketIFC/" + type + "?"
+            var urlPre = "AjAxSocketIFC/" + type + "?";
             if ( method == 'get' && param != '' ) {
                 urlPre += encodeURIComponent(param) + '&';
             }
@@ -201,9 +201,9 @@
                 xmlhttp.open(method, urlPre, async);
                 if ( method == 'post' ) {
                     xmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                    console.info("Request client UI:"+type+" start!");
+                    console.info("Request client UI:" + type + " start!");
                     xmlhttp.send(param);
-                    console.info("Request client UI:"+type+" end!");
+                    console.info("Request client UI:" + type + " end!");
                 } else {
                     //get请求
                     xmlhttp.send();
@@ -243,12 +243,15 @@
             "uploadFail"   : function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@uploadfail@@', '', false);
             }
-        }
+        };
         return {
             "SendToWISPClient": SendToWISPClient,//网客户端发送资源共有方法
             "PostFile"        : PostFile//通用上传接口
         }
     })();
+    /*
+     * 客户端资源接口对象集
+     * */
     Wisp.ClientResource = (function () {
         var HandWriting = function () {
         };//客户端手写功能
@@ -281,9 +284,38 @@
                 Wisp.CommenFunc.SendToWISPClient('post', '@@sendPersonalInfo@@', JSON.stringify(this), false);
             }
         };
-        return{
-            "Camera"      : Camera,
-            "PersonalInfo": PersonalInfo
+        /*
+         * 打印功能
+         * @param event 事件名称
+         * @param opts 接口参数
+         * @param callback 回调函数
+         * @return Printer 返回打印对象
+         * */
+        var Printer = function (event, opts, callback) {
+            var type = {
+                "open": "open"
+            };//event事件映射表
+            if ( !(event && opts) ) {
+                return;
+            }
+            var P = {
+                "init": function () {
+                    var index = event;
+                    this.url = opts.targetpage;
+                    callback && (this.callback = callback);
+                    type[index] && this[type[index]]();
+                },
+                "open": function () {
+                    Wisp.CommenFunc.SendToWISPClient('post', '@@openPrinter@@', JSON.stringify(this), false);
+                }
+            };
+            P.init();//打印接口初始化
+            return P;//返回打印对象
+        };
+        return {
+            "Camera"      : Camera, //调用照相机
+            "PersonalInfo": PersonalInfo, //获取个人信息
+            "Printer"     : Printer //打印接口
         }
     })();
 })();
