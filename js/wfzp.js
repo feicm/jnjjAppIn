@@ -51,11 +51,11 @@ $(function () {
      * 表单提交事件，分两部分：1、调用客户端上传图片；2、表单数据提交
      * */
     submitBtn.addEventListener('click', function (e) {
-        var imgpath = jnjjApp.imgPath.join(',');//图片路径
-        typeVal = $('#type').val() - 0;
-        numVal = $('#num').val();
-        addVal = $('#add').val();
-        actionVal = $('#action').val();
+        var imgpath = jnjjApp.imgPath.join(','),//图片路径
+            typeVal = $('#type').val() - 0,
+            numVal = $('#num').val(),
+            addVal = $('#add').val(),
+            actionVal = $('#action').val();
         if ( jnjjApp.imgPath.length == 0 ) {
             alert('请先拍摄三张照片！')
         } else if ( jnjjApp.imgPath.length < 3 ) {
@@ -163,10 +163,10 @@ $(function () {
     function searchListener(dom, type) {
         var status = dom.attr('active');
         if ( status === 'true' ) {
-            if(type==='add'){
+            if ( type === 'add' ) {
                 autoCompListener(type, url_add);
             }
-            if(type==='action'){
+            if ( type === 'action' ) {
                 autoCompListener(type, url_action);
             }
         }
@@ -216,7 +216,7 @@ $(function () {
             typeVal = $('#type').val() - 0,
             numVal = $('#num').val(),
             addVal = $('#add').val(),
-            actionVal = $('#action').val();
+            actionVal = $('#action').val().split('(')[0];
         $.ajax({
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/wfscform_addWfscform.action",
