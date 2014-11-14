@@ -33,7 +33,7 @@ $(function () {
     function printBtnListener() {
         //获取号牌种类 号牌号码 违法地点存入cookie ,并调用打印接口
         var hpzl, hphm, wfdd;
-        hpzl = $('#type').val() - 0;
+        hpzl = $('#type').val();
         hphm = $('#num').val();
         wfdd = $('#add').val();
         console.log(hpzl);
