@@ -545,9 +545,9 @@ body {
     font-size   : .6em;
     position    : absolute;
     right       : .5em;
-    top: 1.7em;
+    top         : 1.7em;
     background  : #ddd;
-    z-index: 11;
+    z-index     : 11;
 }
 
 .ip-c .f-input {
@@ -775,11 +775,11 @@ body {
 .wzcx-result li a {
     display             : block;
     width               : 100%;
-    min-height: 2.5em;
+    min-height          : 2.5em;
     line-height         : 2.2;
     border-radius       : 4px;
     font-size           : .9em;
-    padding: 2px 30px 2px 15px;
+    padding             : 2px 30px 2px 15px;
     background-image    : url(../images/arr_r.png);
     background-size     : .5em 1em;
     background-position : 95% center;
