@@ -239,7 +239,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
             },
             "bindEvent": function () {  //事件绑定
                 var self = this;
-                var selUl = this.dom.next();
+                var selUl = this.wrap.find('ul');
                 selUl.on('click', 'li', function (event) {
                     event.stopPropagation();
                     var selVal = $(this).text();
