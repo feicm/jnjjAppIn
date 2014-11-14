@@ -259,4 +259,5 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
         new AutoCom();
     }
 })();
+console.log('debug info!');
 	
