@@ -15,7 +15,7 @@
     <script src="config/html/js/zepto.min.js" type="text/javascript"></script>
     <!-- session中获取号牌种类数据 -->
 	<script src="config/html/js/WISPComponents_v3.0.js"></script>
-	<!--<script src="config/html/js/card.js"></script>-->
+    <script src="config/html/js/appConfig.js"></script>
 	<script src="config/html/js/common.js"></script>
 	<script src="config/html/js/query.js"></script>
 	<!--select组件-->

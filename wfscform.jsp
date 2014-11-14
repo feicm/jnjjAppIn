@@ -17,6 +17,7 @@
     <!--select组件-->
     <script src="config/html/js/mobiscroll.all.js" type="text/javascript"></script>
     <!--select组件 end-->
+    <script src="config/html/js/appConfig.js"></script>
 	<script src="config/html/js/common.js"></script>
 	<script src="config/html/js/wfzp.js"></script>
 </head>
