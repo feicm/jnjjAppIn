@@ -788,8 +788,9 @@ body {
 }
 
 .wzcx-result li a {
-    display : table-cell;
-    padding : 2px 30px 2px 15px;
+    display   : table-cell;
+    padding   : 2px 30px 2px 15px;
+    font-size : 16px;
 }
 
 .wzcx-result li a:hover, .wzcx-result li a:active {
