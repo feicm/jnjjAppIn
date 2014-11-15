@@ -773,22 +773,23 @@ body {
     box-sizing : border-box;
 }
 
-.wzcx-result li a {
-    display             : block;
+.wzcx-result li {
     width               : 100%;
-    min-height          : 2.5em;
-    line-height: 1.5;
     border-radius       : 4px;
-    font-size           : .9em;
     padding             : 2px 30px 2px 15px;
     background-image    : url(../images/arr_r.png);
     background-size     : .5em 1em;
     background-position : 95% center;
     background-repeat   : no-repeat;
-    background-color    : #fff;
+    background-color    : #FFF;
     margin-bottom       : .5em;
     box-sizing          : border-box;
     color               : #111;
+}
+
+.wzcx-result li a {
+    display : table-cell;
+    padding : 2px 30px 2px 15px;
 }
 
 .wzcx-result li a:hover, .wzcx-result li a:active {
