@@ -243,11 +243,14 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                 var self = this;
                 var selUl = this.wrap.find('ul');
                 var dataVal;
+                var dataSsxq;
                 selUl.on('click', 'li', function (event) {
                     event.stopPropagation();
                     var selVal = $(this).text();
                     dataVal = $(this).attr('data-value');
+                    dataSsxq = $(this).attr('data-ssxq');
                     dataVal && self.dom.attr('data-value', dataVal);
+                    dataSsxq && self.dom.attr('data-ssxq', dataVal);
                     self.dom.val(selVal);
                     self.ulHtml.hide();
                 });
