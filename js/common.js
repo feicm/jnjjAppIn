@@ -230,7 +230,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                         dataVal = data[i].ddbh;
                         data[i].ssxq && (dataSsxq = data[i].ssxq);
                         value = data[i].ddmc;
-                        listArr.push('<li data-ssxq=' + dataSsxq + ' data-value=' + dataVal + '">' + value + '</li>');
+                        listArr.push('<li data-ssxq=' + dataSsxq + ' data-value=' + dataVal + '>' + value + '</li>');
                     }
                 }
                 console.dir(listArr);
@@ -268,4 +268,3 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
     }
 })();
 console.log('debug info!');
-	
