@@ -217,7 +217,8 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                 var dataVal,
                     value,
                     listArr = [],
-                    listHtml;
+                    listHtml,
+                    dataSsxq;//所属辖区
                 if ( view === 'T1' ) {
                     for ( var i = data.length - 1; i >= 0; i-- ) {
                         dataVal = data[i].wfxw;
@@ -227,8 +228,9 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                 } else {
                     for ( var i = data.length - 1; i >= 0; i-- ) {
                         dataVal = data[i].ddbh;
+                        data[i].ssxq && (dataSsxq = data[i].ssxq);
                         value = data[i].ddmc;
-                        listArr.push('<li data-value=' + dataVal + '">' + value + '</li>');
+                        listArr.push('<li data-ssxq=' + dataSsxq + ' data-value=' + dataVal + '">' + value + '</li>');
                     }
                 }
                 console.dir(listArr);
@@ -244,8 +246,8 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                 selUl.on('click', 'li', function (event) {
                     event.stopPropagation();
                     var selVal = $(this).text();
-                    dataVal=$(this).attr('data-value');
-                    dataVal && self.dom.attr('data-value',dataVal);
+                    dataVal = $(this).attr('data-value');
+                    dataVal && self.dom.attr('data-value', dataVal);
                     self.dom.val(selVal);
                     self.ulHtml.hide();
                 });
