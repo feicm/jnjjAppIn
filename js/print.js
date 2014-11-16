@@ -47,14 +47,14 @@
     var hpzl = jnjjApp.cookie.GetCookie("HaoPaiZhongLei");
     var wfddVal = jnjjApp.cookie.GetCookie("WeiFaDiDian");
     var oHpys = {
-        "黄色": "08",
-        "蓝色": "09",
-        "黑色": "10",
+        "黄": "08",
+        "蓝": "09",
+        "黑": "10",
         "其他": "11"
     };
     csys = document.getElementById('color');
     cphm = document.getElementById('num');
-    hpzl && (cllx = document.getElementById("0" + hpzl));
+    hpzl && (cllx = document.getElementById(hpzl));
     wfdd = document.getElementById('cur_add');
     if ( hphm && hpzl ) {
         var querycarUrl = "/wispcms/adapter?url="
