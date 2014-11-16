@@ -217,8 +217,8 @@ $(function () {
             numVal = $('#num').val(),//号牌号码  京A12345
             addVal = $('#add').attr('data-value'),//违法地点  208300315500
             actionVal = $('#action').attr('data-value'), //违法行为 12345
-            bmdm = jnjjApp.config.GetCookie('BuMenDaiMa'), //采集机关（部门代码）371600000001
-            jybh = jnjjApp.config.GetCookie('49BAC005-7D5B-4231-8CEA-16939BEACD67');//警员编号 014903
+            bmdm = jnjjApp.cookie.GetCookie('BuMenDaiMa'), //采集机关（部门代码）371600000001
+            jybh = jnjjApp.cookie.GetCookie('49BAC005-7D5B-4231-8CEA-16939BEACD67');//警员编号 014903
         $.ajax({
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/wfscform_addWfscform.action",
