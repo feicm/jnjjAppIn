@@ -63,7 +63,7 @@
         $.ajax({
             type    : 'POST',
             url     : querycarUrl,
-            data    : {hpzl: hpzl, hphm: hphm},
+            data    : {hpzl: hpzl, hphm: hphm, keyword: "json"},
             dataType: 'json'
         }).done(function (data) {
             if ( data.success ) {
