@@ -213,14 +213,24 @@ $(function () {
     };
     function submitForm(value) {
         var imgId = value,
-            typeVal = $('#type').val() - 0,
-            numVal = $('#num').val(),
-            addVal = $('#add').val(),
-            actionVal = $('#action').val().split('(')[0];
+            typeVal = $('#type').val(),//号牌种类  01
+            numVal = $('#num').val(),//号牌号码  京A12345
+            addVal = $('#add').attr('data-value'),//违法地点  208300315500
+            actionVal = $('#action').attr('data-value'), //违法行为 12345
+            bmdm = jnjjApp.config.GetCookie('BuMenDaiMa'), //采集机关（部门代码）371600000001
+            jybh = jnjjApp.config.GetCookie('49BAC005-7D5B-4231-8CEA-16939BEACD67');//警员编号 014903
         $.ajax({
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/wfscform_addWfscform.action",
-            data    : {hpzl: typeVal, hphm: numVal, wfdd: addVal, wfxw: actionVal, wfscformid: imgId},
+            data    : {
+                hpzl      : typeVal,
+                hphm      : numVal,
+                wfdd      : addVal,
+                wfxw      : actionVal,
+                cjjg      : bmdm,
+                zqmj      : jybh,
+                wfscformid: imgId
+            },
             dataType: 'json',
             success : function (data) {
                 console.dir(data);

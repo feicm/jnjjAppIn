@@ -41,7 +41,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
             var expdate = new Date();
             jnjjApp.cookie.SetCookie(usr, null, expdate);
         }
-    }
+    };
     /*
      * 模拟按钮高亮
      * */
@@ -53,7 +53,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
         btn.addEventListener("touchend", function () {
             this.classList.remove(className);
         }, false);
-    }
+    };
     /*
      * 通过数组值获取数组下标
      * */
@@ -63,7 +63,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                 return i;
             }
         }
-    }
+    };
     /*
      * 获取当前时间
      * */
@@ -90,7 +90,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
             clock += mm + "分";
         }
         return (clock);
-    }
+    };
     /*
      * 下拉控件二次封装
      * */
@@ -100,7 +100,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
         this.dataType = opts.dataType;
         this.callback = opts.callback || null;
         this.init();
-    }
+    };
     jnjjApp.Select.prototype = {
         "init": function () {
             var self = this;
@@ -240,9 +240,12 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
             "bindEvent": function () {  //事件绑定
                 var self = this;
                 var selUl = this.wrap.find('ul');
+                var dataVal;
                 selUl.on('click', 'li', function (event) {
                     event.stopPropagation();
                     var selVal = $(this).text();
+                    dataVal=$(this).attr('data-value');
+                    dataVal && self.dom.attr('data-value',dataVal);
                     self.dom.val(selVal);
                     self.ulHtml.hide();
                 });
