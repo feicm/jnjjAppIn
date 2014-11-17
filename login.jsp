@@ -22,7 +22,6 @@
           <input type="password" class="ipt-pw" name="pwd" id="password"/>
 		  <label class="bgi-pw"></label>
       </div>
-      <input type="hidden" name="imei" value="352825961512345" id="imei"/>
       <div class='mgt10 fl'>
           <input type="checkbox" id="ck_rem"/>
           <label class="rem-pw fs8" for="ck_rem">记住密码</label>
