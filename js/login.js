@@ -19,7 +19,6 @@ var Login = (function () {
         var self = this;
         username = document.getElementById('username').value;
         password = document.getElementById('password').value;
-        IMEI = document.getElementById('imei').value;
         self.removeEventListener('click', loginListener, false);
         if ( username === '' ) {
             alert('用户名不能为空！');
@@ -30,6 +29,7 @@ var Login = (function () {
                 submit.addEventListener('click', loginListener, false);
             } else {
                 Wisp.UI.progressDialog.show('登录中，请稍后！');
+                jnjjApp.cookie.SetCookie('JingYuanBianHao', username);
                 //jnjjApp.sendPersonalInfo('Device'); //login debug
                 jnjjApp.PersonalInfo = new Wisp.ClientResource.PersonalInfo({
                     "username"     : username,
@@ -231,135 +231,6 @@ var Login = (function () {
                 "clickEvent": "",
                 "requestUrl": jnjjApp.config.requestUrl + "/wispcms/adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/addresslist.action",
                 "subBtns"   : []
-            },
-            {
-                "beforeImg"   : "config/html/images/wispui/shouye_normal.png",
-                "afterImg"    : "config/html/images/wispui/shouye_hover.png",
-                "name"        : "测试",
-                "clickEvent"  : "",
-                "subBtns"     : [],
-                "shortcutBtns": [
-                    {
-                        "type": "分类一",//用于分组，为空时不显示
-                        "data": [
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
-                                "disableImg": "config/html/images/wispui/clcx_hover.png",//按钮不可用图片，即 "enable"    : "false"
-                                "enable"    : "false",
-                                "name"      : "不可用按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "驾照查询",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "违法查询",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wfzp_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wfzp_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "违法抓拍",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/wfscform.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wsdy_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wsdy_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "文书打印",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "config/html/print.html?action=print"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "分类二",//用于分组，为空时不显示
-                        "data": [
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
-                                "disableImg": "",//按钮不可用图片，即 "enable"    : "false"
-                                "enable"    : "true",
-                                "name"      : "车辆查询",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "驾照查询",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "违法查询",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wfzp_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wfzp_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "违法抓拍",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/wfscform.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wsdy_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wsdy_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "文书打印",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "config/html/print.html?action=print"
-                            }
-                        ]
-                    }
-                ]
             }
         ]
     };
@@ -380,6 +251,8 @@ var Login = (function () {
                 }
                 break;
             case "Device":
+                var IMEI;
+                value && (IMEI = value);
                 $.ajax({ //获取个人信息
                     type    : 'POST',
                     url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/personal.action",
@@ -418,7 +291,7 @@ var Login = (function () {
                     $.ajax({ //登录验证请求
                         type    : 'POST',
                         url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
-                        data    : {pname: username, pwd: password, imei: '352824061689037'},
+                        data    : {pname: username, pwd: password, imei: IMEI},
                         dataType: 'json'
                     }).done(function (data) {//登录表单提交
                         console.dir(data);
@@ -448,19 +321,17 @@ var Login = (function () {
                             submit.addEventListener('click', loginListener, false);
                         }
                     }).fail(function (msg) {
-                        console.dir(msg);
                         Wisp.UI.progressDialog.remove();
                         alert('登录失败!\n请检查网络是否连接正常！');
                         submit.addEventListener('click', loginListener, false);
                     });
-                }).fail(function (msg) { //获取个人信息失败
-                    console.dir(msg);
+                }).fail(function (data) { //获取个人信息失败
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败！\n请检查网络是否连接正常！');
                     submit.addEventListener('click', loginListener, false);
                 });
                 break;
         }
-    };
+    }
     GetLastUser();
 })();
