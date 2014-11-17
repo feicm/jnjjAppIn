@@ -252,7 +252,11 @@ var Login = (function () {
                 break;
             case "Device":
                 var IMEI;
-                value && (IMEI = value);
+                if(jnjjApp.config.domain==='rjsoft.gnway.cc'){
+                    IMEI='352824061689037';
+                }else{
+                    IMEI = value;
+                }
                 $.ajax({ //获取个人信息
                     type    : 'POST',
                     url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/personal.action",
