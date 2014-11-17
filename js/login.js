@@ -123,7 +123,7 @@ var Login = (function () {
                 "subBtns"     : [],
                 "shortcutBtns": [
                     {
-                        "type": "",//用于分组，为空时不显示
+                        "divider": {},//用于分组，为空时不显示
                         "data": [
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
@@ -231,6 +231,97 @@ var Login = (function () {
                 "clickEvent": "",
                 "requestUrl": jnjjApp.config.requestUrl + "/wispcms/adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/addresslist.action",
                 "subBtns"   : []
+            },
+            {
+                "beforeImg"   : "config/html/images/wispui/shouye_normal.png",
+                "afterImg"    : "config/html/images/wispui/shouye_hover.png",
+                "name"        : "测试",
+                "clickEvent"  : "",
+                "subBtns"     : [],
+                "shortcutBtns": [
+                    {
+                        "divider": {
+                            "title":"业务分类",
+                            "ico":"config/html/images/wispui/user_hover.png"
+                        },//用于分组，为空时不显示
+                        "data": [
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
+                                "disableImg": "",//按钮不可用图片，即 "enable"    : "false"
+                                "enable"    : "true",
+                                "name"      : "测试按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
+                            },
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
+                                "disableImg": "config/html/images/wispui/jzcx_hover.png",
+                                "enable"    : "false",
+                                "name"      : "不可用按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
+                            },
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
+                                "disableImg": "",
+                                "enable"    : "true",
+                                "name"      : "测试按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
+                            }
+                        ]
+                    },
+                    {
+                        "divider": {
+                            "title":"业务分类",
+                            "ico":"config/html/images/wispui/user_hover.png"
+                        },//用于分组，为空时不显示
+                        "data": [
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
+                                "disableImg": "",//按钮不可用图片，即 "enable"    : "false"
+                                "enable"    : "true",
+                                "name"      : "测试按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
+                            },
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
+                                "disableImg": "config/html/images/wispui/jzcx_hover.png",
+                                "enable"    : "false",
+                                "name"      : "不可用按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
+                            },
+                            {
+                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
+                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
+                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
+                                "disableImg": "",
+                                "enable"    : "true",
+                                "name"      : "测试按钮",
+                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
+                                "clickEvent": "",
+                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
+                            }
+                        ]
+                    }
+                ]
             }
         ]
     };
