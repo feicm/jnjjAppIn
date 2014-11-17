@@ -245,7 +245,7 @@ var Login = (function () {
                     {
                         "divider": {
                             "title": "业务分类",
-                            "ico"  : "config/html/images/wispui/user_hover.png"
+                            "ico"  : "config/html/images/user_hover.png"
                         },//用于分组，为空时不显示
                         "data"   : [
                             {
@@ -286,7 +286,7 @@ var Login = (function () {
                     {
                         "divider": {
                             "title": "业务分类",
-                            "ico"  : "config/html/images/wispui/user_hover.png"
+                            "ico"  : "config/html/images/user_hover.png"
                         },//用于分组，为空时不显示
                         "data"   : [
                             {
