@@ -123,8 +123,11 @@ var Login = (function () {
                 "subBtns"     : [],
                 "shortcutBtns": [
                     {
-                        "divider": {},//用于分组，为空时不显示
-                        "data": [
+                        "divider": {
+                            "title": "",
+                            "ico"  : ""
+                        },//用于分组，为空时不显示
+                        "data"   : [
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                                 "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
@@ -241,10 +244,10 @@ var Login = (function () {
                 "shortcutBtns": [
                     {
                         "divider": {
-                            "title":"业务分类",
-                            "ico":"config/html/images/wispui/user_hover.png"
+                            "title": "业务分类",
+                            "ico"  : "config/html/images/wispui/user_hover.png"
                         },//用于分组，为空时不显示
-                        "data": [
+                        "data"   : [
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                                 "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
@@ -282,10 +285,10 @@ var Login = (function () {
                     },
                     {
                         "divider": {
-                            "title":"业务分类",
-                            "ico":"config/html/images/wispui/user_hover.png"
+                            "title": "业务分类",
+                            "ico"  : "config/html/images/wispui/user_hover.png"
                         },//用于分组，为空时不显示
-                        "data": [
+                        "data"   : [
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                                 "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
