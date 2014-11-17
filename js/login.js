@@ -251,10 +251,12 @@ var Login = (function () {
                 }
                 break;
             case "Device":
-                var IMEI;
-                if(jnjjApp.config.domain==='rjsoft.gnway.cc'){
-                    IMEI='352824061689037';
-                }else{
+                var IMEI,
+                    bmdm;
+                if ( jnjjApp.config.domain === 'rjsoft.gnway.cc' ) {//开发环境写死
+                    IMEI = '352824061689037';
+                    bmdm = '370102';
+                } else {
                     IMEI = value;
                 }
                 $.ajax({ //获取个人信息
@@ -267,7 +269,7 @@ var Login = (function () {
                     var msg = data.msg;
                     var nameCH = msg.xm;
                     var imgSrc = msg.tx;
-                    var bmdm = '370102';//开发环境写死
+                    msg.bmdmt && (bmdm = msg.bmdmt);
                     jnjjApp.cookie.SetCookie('BuMenDaiMa', bmdm);
                     jnjjApp.cookie.SetCookie('XingMing', nameCH);
                     /*
