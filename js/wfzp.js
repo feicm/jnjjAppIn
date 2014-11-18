@@ -2,13 +2,12 @@ $(function () {
     /*
      * 违法抓拍
      * */
-    var Select1 = new jnjjApp.Select({//实例化下拉数据  --车牌类型
-        "dom"     : $("#type"),
-        "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
-        "dataType": 'Object'
-    });
-    var submitBtn = document.getElementById('submit_btn');
-    jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
+    /*var Select1 = new jnjjApp.Select({//实例化下拉数据  --车牌类型
+     "dom"     : $("#type"),
+     "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
+     "dataType": 'Object'
+     });*/
+    var submitBtn = $('#submit_btn');
     jnjjApp.btnHover('reset', 'btn-hover');   //重置按钮点击高亮
     jnjjApp.btnHover('take_camera', 'camera-btn-hover'); //拍照“+”按钮点击高亮
     /*
@@ -21,13 +20,20 @@ $(function () {
         console.log(isCheck);
         if ( isCheck ) {
             go_print.css('background', '#0C79BE');
+            submitBtn.css('background', '#0C79BE');
             jnjjApp.btnHover('go_print', 'btn-hover');
+            jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
             go_print.on('click', function (e) {
                 printBtnListener();
             });
+            submitBtn.on('click', function (e) {
+                submitBtnListener();
+            });
         } else {
             go_print.css('background', '#ddd');
+            submitBtn.css('background', '#ddd');
             go_print.off('click');
+            submitBtn.off('click');
         }
     });
     function printBtnListener() {
@@ -50,7 +56,7 @@ $(function () {
     /*
      * 表单提交事件，分两部分：1、调用客户端上传图片；2、表单数据提交
      * */
-    submitBtn.addEventListener('click', function (e) {
+    function submitBtnListener(){
         var imgpath = jnjjApp.imgPath.join(','),//图片路径
             typeVal = $('#type').val() - 0,
             numVal = $('#num').val(),
@@ -77,16 +83,16 @@ $(function () {
             });
             jnjjApp.PostFile.uploadFile();//调用上传函数
         }
-    }, false);
+    }
     /*
      * 重置按钮事件绑定
      * */
     var reset_btn = $('#reset');
     var resetListener = function (e) {
         if ( confirm('重置所有内容将连照片也删除，确定？') ) {
-            $('#type').val('01');
+            $('#type').val('1');
             $('#num').val('');
-            $('#add').val('01');
+            $('#add').val('');
             $('#action').val('');
             $('#phone_con').html('');
             jnjjApp.imgPath.length = 0;

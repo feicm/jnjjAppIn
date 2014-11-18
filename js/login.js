@@ -156,7 +156,7 @@ var Login = (function () {
                                 "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
                                 "disableImg": "",
                                 "enable"    : "true",
-                                "name"      : "违法查询",
+                                "name"      : "违法信息",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
                                 "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"

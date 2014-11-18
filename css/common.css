@@ -98,7 +98,8 @@ body {
     height : 120px;
     border : 0;
 }
-
+.color_01{color:red}
+.color_02{color:green}
 /*--------------2-login.html-------*/
 .m-log {
     background      : url(../images/big_bg.jpg);
@@ -352,10 +353,16 @@ body {
     width       : 100%;
     line-height : 2.2;
     padding     : 0 .6em;
+    border-bottom: 1px solid #eee;
+    background: #fff;
 }
-
-.m-4-1-3 .bd div:nth-child(even) {
-    background : #e8e8e8;
+.m-4-1-3 .bd div.divider{
+    text-align: center;
+    margin-top: 1em;
+    border-top: 1px solid #ddd;
+    border-bottom: 1px solid #aaa;
+    box-shadow: 0 1px 1px #ddd;
+    font-weight: bold;
 }
 
 /*å…¬å…±æ ·å¼*/
@@ -431,6 +438,7 @@ body {
 
 /*è¿æ³•ä¸Šä¼ */
 .bd {
+    margin-bottom: 1em;
 }
 
 .camera {
