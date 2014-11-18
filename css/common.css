@@ -530,9 +530,9 @@ body {
     margin-top : 0;
     float      : right;
     font-size  : .6em;
-    background : #bbb;
+    background: #ddd;
 }
-
+.wf-form #submit_btn{background: #ddd}
 .ip-c .sel li {
     border-bottom : 1px dashed #ddd;
     padding       : .3em 1em;
