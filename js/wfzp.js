@@ -92,13 +92,17 @@ $(function () {
         if ( confirm('重置所有内容将连照片也删除，确定？') ) {
             var selectFirstTxt=$("#type").find("option[value='01']").text();
             $("#type_dummy").val(selectFirstTxt);
-            print_cb.prop("checked",false);
             $('#type').val('01');
             $('#num').val('');
             $('#add').val('');
             $('#action').val('');
             $('#phone_con').html('');
             jnjjApp.imgPath.length = 0;
+            print_cb.prop("checked",false);
+            go_print.css('background', '#ddd');
+            submitBtn.css('background', '#ddd');
+            go_print.off('click');
+            submitBtn.off('click');
         } else {
             return false;
         }
@@ -247,12 +251,16 @@ $(function () {
                     if ( data.success ) { //提交成功，重置表单
                         var selectFirstTxt=$("#type").find("option[value='01']").text();
                         $("#type_dummy").val(selectFirstTxt);
-                        print_cb.prop("checked",false);
                         $('#type').val('01');
                         $('#num').val('');
                         $('#add').val('');
                         $('#action').val('');
                         $('#phone_con').html('');
+                        print_cb.prop("checked",false);
+                        go_print.css('background', '#ddd');
+                        submitBtn.css('background', '#ddd');
+                        go_print.off('click');
+                        submitBtn.off('click');
                         Wisp.UI.progressDialog.remove();
                         alert('提交成功！！！');
                         jnjjApp.imgPath.length = 0;
