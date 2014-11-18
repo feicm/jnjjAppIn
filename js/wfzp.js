@@ -20,20 +20,13 @@ $(function () {
         console.log(isCheck);
         if ( isCheck ) {
             go_print.css('background', '#0C79BE');
-            submitBtn.css('background', '#0C79BE');
             jnjjApp.btnHover('go_print', 'btn-hover');
-            jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
             go_print.on('click', function (e) {
                 printBtnListener();
             });
-            submitBtn.on('click', function (e) {
-                submitBtnListener();
-            });
         } else {
             go_print.css('background', '#ddd');
-            submitBtn.css('background', '#ddd');
             go_print.off('click');
-            submitBtn.off('click');
         }
     });
     function printBtnListener() {
@@ -50,6 +43,11 @@ $(function () {
         wfdd && jnjjApp.cookie.SetCookie('WeiFaDiDian', wfdd);
         Wisp.ClientResource.Printer("open", {
             "targetpage": 'config/html/print.html?action=print'
+        });
+        submitBtn.css('background', '#0C79BE');
+        jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
+        submitBtn.on('click', function (e) {
+            submitBtnListener();
         });
     }
 

@@ -40,8 +40,8 @@
     </div>
     <div class="print">
         <input type="checkbox" id="print" name="type" />
-        <label for="print">打印</label>
-        <a class="btn" id="go_print">完善告知书信息</a>
+        <label for="print">完善告知书信息</label>
+        <a class="btn" id="go_print">打印预览</a>
     </div>
     <section class="camera ovh">
         <span id="phone_con">
