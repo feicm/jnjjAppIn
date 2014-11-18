@@ -90,7 +90,9 @@ $(function () {
     var reset_btn = $('#reset');
     var resetListener = function (e) {
         if ( confirm('重置所有内容将连照片也删除，确定？') ) {
-            $('#type').val('1');
+            var selectFirstTxt=$("#type").find("option[value='01']").text();
+            $("#type_dummy").val(selectFirstTxt);
+            $('#type').val('01');
             $('#num').val('');
             $('#add').val('');
             $('#action').val('');
