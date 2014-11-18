@@ -2,11 +2,11 @@ $(function () {
     /*
      * 违法抓拍
      * */
-    /*var Select1 = new jnjjApp.Select({//实例化下拉数据  --车牌类型
-     "dom"     : $("#type"),
-     "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
-     "dataType": 'Object'
-     });*/
+    var Select1 = new jnjjApp.Select({//实例化下拉数据  --车牌类型
+        "dom"     : $("#type"),
+        "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
+        "dataType": 'Object'
+    });
     var submitBtn = $('#submit_btn');
     jnjjApp.btnHover('reset', 'btn-hover');   //重置按钮点击高亮
     jnjjApp.btnHover('take_camera', 'camera-btn-hover'); //拍照“+”按钮点击高亮
