@@ -35,9 +35,7 @@
         <input id="IDnum" value='鲁AE2751' name="hphm" class="f-input" placeholder="请输入有效号牌号码"/>
         <div class='print'>
             <input type="checkbox" id="nodo01" name="hockitem">
-            <label for="nodo01">未处理</label>
-            <input type="checkbox" id="nodo02" name="hockitem">
-            <label for="nodo02">未缴费</label>
+            <label for="nodo01">未处理、未缴费</label>
         </div>
     </div>
     <div id="a2" style="display: none">
@@ -48,8 +46,8 @@
         <label for="IDnum2">证件号码</label>
         <input id="IDnum2" name="zjhm" class="f-input" placeholder="请输入有效证件号码"/>
         <div class='print'>
-            <input type="checkbox" id="nodo03" name="hockitem">
-            <label for="nodo03">未交款</label>
+            <input type="checkbox" id="nodo02" name="hockitem">
+            <label for="nodo02">未交款</label>
         </div>
     </div>
     <input type="submit" class="btn block" value='提交' id="button"/>
