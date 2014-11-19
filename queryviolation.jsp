@@ -49,7 +49,7 @@
         <input id="IDnum2" name="zjhm" class="f-input" placeholder="请输入有效证件号码"/>
         <div class='print'>
             <input type="checkbox" id="nodo03" name="hockitem">
-            <label for="03">未交款</label>
+            <label for="nodo03">未交款</label>
         </div>
     </div>
     <input type="submit" class="btn block" value='提交' id="button"/>
