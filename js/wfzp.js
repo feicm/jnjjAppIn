@@ -38,6 +38,7 @@ $(function () {
         console.log(hpzl);
         console.log(hphm);
         console.log(wfdd);
+        submitBtn.off('click');
         hpzl && jnjjApp.cookie.SetCookie('HaoPaiZhongLei', hpzl);
         hphm && jnjjApp.cookie.SetCookie('HaoPaiHaoMa', hphm);
         wfdd && jnjjApp.cookie.SetCookie('WeiFaDiDian', wfdd);
