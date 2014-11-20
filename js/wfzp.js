@@ -89,9 +89,9 @@ $(function () {
     var reset_btn = $('#reset');
     var resetListener = function (e) {
         if ( confirm('重置所有内容将连照片也删除，确定？') ) {
-            var selectFirstTxt=$("#type").find("option:first-child").text();
-            $("#type_dummy").val(selectFirstTxt);
-            $('#type').val('01');
+            var selectFirst=$("#type").find("option:first-child");
+            $("#type_dummy").val(selectFirst.text());
+            $('#type').val(selectFirst.val());
             $('#num').val('');
             $('#add').val('');
             $('#action').val('');
@@ -248,9 +248,9 @@ $(function () {
                 console.dir(data);
                 if ( data !== null ) {
                     if ( data.success ) { //提交成功，重置表单
-                        var selectFirstTxt=$("#type").find("option:first-child").text();
-                        $("#type_dummy").val(selectFirstTxt);
-                        $('#type').val('01');
+                        var selectFirst=$("#type").find("option:first-child");
+                        $("#type_dummy").val(selectFirst.text());
+                        $('#type').val(selectFirst.val());
                         $('#num').val('');
                         $('#add').val('');
                         $('#action').val('');
