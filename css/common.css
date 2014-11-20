@@ -373,7 +373,7 @@ body {
     font-weight   : bold;
 }
 
-/*å…¬å…±æ ·å¼*/
+/*Ã¥â€¦Â¬Ã¥â€¦Â±Ã¦Â Â·Ã¥Â¼Â*/
 .btn {
     display       : inline-block;
     width         : 40%;
@@ -444,7 +444,7 @@ body {
     background-repeat   : no-repeat;
 }
 
-/*è¿æ³•ä¸Šä¼ */
+/*Ã¨Â¿ÂÃ¦Â³â€¢Ã¤Â¸Å Ã¤Â¼Â */
 .bd {
     margin-bottom : .5em;
 }
@@ -561,21 +561,22 @@ body {
 
 .ip-c .btn {
     width       : 4em;
-    height      : 3em;
-    line-height : 1.5;
-    font-size   : .6em;
+    height      : 2.5em;
+    line-height : 2.5;
+    font-size   : 14px;
     position    : absolute;
     right       : .5em;
-    top         : 2.2em;
+    bottom      : 2px;
     background  : #ddd;
     z-index     : 11;
+    padding     : 0;
 }
 
 .ip-c .f-input {
     padding-right : 4em;
 }
 
-/*æ‰“å°é¡µé¢*/
+/*Ã¦â€°â€œÃ¥ÂÂ°Ã©Â¡ÂµÃ©ÂÂ¢*/
 .print-bd {
     background     : #fff;
     padding-bottom : 1em;
@@ -700,7 +701,7 @@ body {
     border-radius : 3px;
 }
 
-/*å¯†ç ä¿®æ”¹*/
+/*Ã¥Â¯â€ Ã§Â ÂÃ¤Â¿Â®Ã¦â€Â¹*/
 .r-pwd {
     width        : 95%;
     height       : auto;
@@ -734,7 +735,7 @@ body {
     margin-left : 5.5em;
 }
 
-/*æŸ¥è¯¢ç»“æžœtab*/
+/*Ã¦Å¸Â¥Ã¨Â¯Â¢Ã§Â»â€œÃ¦Å¾Å“tab*/
 .ui-grid-b {
     overflow : hidden;
 }
