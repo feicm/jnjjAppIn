@@ -14,11 +14,11 @@
       <div class="ui-circle-pic">
           <img src="config/html/images/touxiang.png">
       </div>
-      <div>
+      <div class='ovh'>
           <input class="ipt-un" name="pname" id="username"/>
 		  <label class="bgi-un"></label>
       </div>
-      <div>
+      <div class='ovh'>
           <input type="password" class="ipt-pw" name="pwd" id="password"/>
 		  <label class="bgi-pw"></label>
       </div>
