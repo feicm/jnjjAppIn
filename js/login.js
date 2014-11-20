@@ -39,7 +39,7 @@ var Login = (function () {
                     "fileServerUrl": "http://" + jnjjApp.config.domain + ":" + jnjjApp.config.fileServerPort + "/fileTrans/PostFile"
                 });//实例化个人信息接口
                 jnjjApp.PersonalInfo.send('jnjjApp.sendPersonalInfo');//调用发送函数
-                SetPwdAndChk();//‘记住密码’功能
+                //SetPwdAndChk();//‘记住密码’功能
             }
         }
     };
