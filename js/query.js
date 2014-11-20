@@ -18,7 +18,7 @@ $(function () {
                 var num = document.getElementById('num').value;
                 if ( num !== '' ) {
                     //todo 输入校验
-                    var reg=/^[A-Z_0-9]{5}/;
+                    var reg=/^[A-Z_a-z_0-9]{5}/;
                     if(reg.test(num)){
                         form_clcx.submit();
                     }else{
