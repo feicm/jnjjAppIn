@@ -10,7 +10,8 @@ var Login = (function () {
     usernameInput.addEventListener('blur', SetPwdAndChk, false);
     jnjjApp.btnHover('login-submit', 'login-btn-hover');
     var username,
-        password;
+        password,
+        IMEI;
     /*
      * 登录函数
      * */
@@ -362,10 +363,8 @@ var Login = (function () {
                     var msg = data.msg;
                     var nameCH = msg.xm;
                     var imgSrc = msg.tx;
-                    var zsbmid = msg.zsbmid;
                     msg.bmdmt && (bmdm = msg.bmdmt);
                     jnjjApp.cookie.SetCookie('BuMenDaiMa', bmdm);
-                    jnjjApp.cookie.SetCookie('ZhiShuBuMenId', zsbmid);
                     jnjjApp.cookie.SetCookie('XingMing', nameCH);
                     /*
                      * 侧栏（个人中心数据格式）
