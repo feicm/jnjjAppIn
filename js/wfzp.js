@@ -55,7 +55,7 @@ $(function () {
     /*
      * 表单提交事件，分两部分：1、调用客户端上传图片；2、表单数据提交
      * */
-    function submitBtnListener() {
+    function submitBtnListener(){
         var imgpath = jnjjApp.imgPath.join(','),//图片路径
             typeVal = $('#type').val() - 0,
             numVal = $('#num').val(),
@@ -83,14 +83,13 @@ $(function () {
             jnjjApp.PostFile.uploadFile();//调用上传函数
         }
     }
-
     /*
      * 重置按钮事件绑定
      * */
     var reset_btn = $('#reset');
     var resetListener = function (e) {
         if ( confirm('重置所有内容将连照片也删除，确定？') ) {
-            var selectFirst = $("#type").find("option:first-child");
+            var selectFirst=$("#type").find("option:first-child");
             $("#type_dummy").val(selectFirst.text());
             $('#type').val(selectFirst.val());
             $('#num').val('');
@@ -98,7 +97,7 @@ $(function () {
             $('#action').val('');
             $('#phone_con').html('');
             jnjjApp.imgPath.length = 0;
-            print_cb.prop("checked", false);
+            print_cb.prop("checked",false);
             go_print.css('background', '#ddd');
             submitBtn.css('background', '#ddd');
             go_print.off('click');
@@ -230,7 +229,7 @@ $(function () {
             numVal = $('#num').val(),//号牌号码  京A12345
             addVal = $('#add').attr('data-value'),//违法地点  208300315500
             actionVal = $('#action').attr('data-value'), //违法行为 12345
-            zsbmid = jnjjApp.cookie.GetCookie('ZhiShuBuMenId'), //采集机关（直属部门id）3
+            ssxq = $('#add').attr('data-ssxq'), //采集机关（所属辖区）371600000001
             jybh = jnjjApp.cookie.GetCookie('49BAC005-7D5B-4231-8CEA-16939BEACD67');//警员编号 014903
         $.ajax({
             type    : 'POST',
@@ -240,7 +239,7 @@ $(function () {
                 hphm      : numVal,
                 wfdd      : addVal,
                 wfxw      : actionVal,
-                cjjg      : zsbmid,
+                cjjg      : ssxq,
                 zqmj      : jybh,
                 wfscformid: imgId
             },
@@ -249,14 +248,14 @@ $(function () {
                 console.dir(data);
                 if ( data !== null ) {
                     if ( data.success ) { //提交成功，重置表单
-                        var selectFirst = $("#type").find("option:first-child");
+                        var selectFirst=$("#type").find("option:first-child");
                         $("#type_dummy").val(selectFirst.text());
                         $('#type').val(selectFirst.val());
                         $('#num').val('');
                         $('#add').val('');
                         $('#action').val('');
                         $('#phone_con').html('');
-                        print_cb.prop("checked", false);
+                        print_cb.prop("checked",false);
                         go_print.css('background', '#ddd');
                         submitBtn.css('background', '#ddd');
                         go_print.off('click');
