@@ -144,7 +144,7 @@ var Login = (function () {
                                 "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
                                 "disableImg": "",
                                 "enable"    : "true",
-                                "name"      : "驾照查询",
+                                "name"      : "驾驶证查询",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
                                 "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
@@ -217,7 +217,7 @@ var Login = (function () {
                         "url" : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
                     },
                     {
-                        "name": "驾照查询",
+                        "name": "驾驶证查询",
                         "url" : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
                     },
                     {
