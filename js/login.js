@@ -189,20 +189,7 @@ var Login = (function () {
                 "afterImg"  : "config/html/images/wispui/xinxi_hover.png",
                 "name"      : "信息",
                 "clickEvent": "",
-                "subBtns"   : [   //客户端直接和服务端通信
-                    {
-                        "name"      : "交管新闻",
-                        "requestUrl": jnjjApp.config.requestUrl + "/wispcms/content/list.do?cid=64&type=Android" //客户端向服务器发起数据请求
-                    },
-                    {
-                        "name"      : "道路状况",
-                        "requestUrl": jnjjApp.config.requestUrl + "/wispcms/content/list.do?cid=65&type=Android"
-                    },
-                    {
-                        "name"      : "交通事故",
-                        "requestUrl": jnjjApp.config.requestUrl + "/wispcms/content/list.do?cid=65&type=Android"
-                    }
-                ]
+                "subBtns"   : []
             },
             {
                 "beforeImg" : "config/html/images/wispui/chaxun_normal.png",
