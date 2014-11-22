@@ -238,8 +238,7 @@ var Login = (function () {
                 }
                 break;
             case "Device":
-                var IMEI,
-                    bmdm;
+                var bmdm;
                 if ( jnjjApp.config.domain === 'rjsoft.gnway.cc' ) {//开发环境写死
                     IMEI = '352824061689037';
                     bmdm = '370102';
