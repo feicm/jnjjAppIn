@@ -39,7 +39,7 @@ var Login = (function () {
                     "fileServerUrl": "http://" + jnjjApp.config.domain + ":" + jnjjApp.config.fileServerPort + "/fileTrans/PostFile"
                 });//实例化个人信息接口
                 jnjjApp.PersonalInfo.send('jnjjApp.sendPersonalInfo');//调用发送函数
-                //SetPwdAndChk();//‘记住密码’功能
+                SetPwdAndChk();//‘记住密码’功能
             }
         }
     };
@@ -123,11 +123,8 @@ var Login = (function () {
                 "subBtns"     : [],
                 "shortcutBtns": [
                     {
-                        "divider": {
-                            "title": "",
-                            "ico"  : ""
-                        },//用于分组，为空时不显示
-                        "data"   : [
+                        "type": "",//用于分组，为空时不显示
+                        "data": [
                             {
                                 "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
                                 "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
@@ -156,7 +153,7 @@ var Login = (function () {
                                 "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
                                 "disableImg": "",
                                 "enable"    : "true",
-                                "name"      : "违法信息",
+                                "name"      : "违法查询",
                                 "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
                                 "clickEvent": "",
                                 "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
@@ -234,97 +231,6 @@ var Login = (function () {
                 "clickEvent": "",
                 "requestUrl": jnjjApp.config.requestUrl + "/wispcms/adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/addresslist.action",
                 "subBtns"   : []
-            },
-            {
-                "beforeImg"   : "config/html/images/wispui/shouye_normal.png",
-                "afterImg"    : "config/html/images/wispui/shouye_hover.png",
-                "name"        : "测试",
-                "clickEvent"  : "",
-                "subBtns"     : [],
-                "shortcutBtns": [
-                    {
-                        "divider": {
-                            "title": "业务分类",
-                            "ico"  : "config/html/images/user_hover.png"
-                        },//用于分组，为空时不显示
-                        "data"   : [
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
-                                "disableImg": "",//按钮不可用图片，即 "enable"    : "false"
-                                "enable"    : "true",
-                                "name"      : "测试按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
-                                "disableImg": "config/html/images/wispui/jzcx_hover.png",
-                                "enable"    : "false",
-                                "name"      : "不可用按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "测试按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
-                            }
-                        ]
-                    },
-                    {
-                        "divider": {
-                            "title": "业务分类",
-                            "ico"  : "config/html/images/user_hover.png"
-                        },//用于分组，为空时不显示
-                        "data"   : [
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/clcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/clcx_hover.png", //点击时图标
-                                "disableImg": "",//按钮不可用图片，即 "enable"    : "false"
-                                "enable"    : "true",
-                                "name"      : "测试按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/jzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/jzcx_hover.png", //点击时图标
-                                "disableImg": "config/html/images/wispui/jzcx_hover.png",
-                                "enable"    : "false",
-                                "name"      : "不可用按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
-                            },
-                            {
-                                "btnType"   : "icobtn",//带图标按钮 ;txtbtn,纯文本
-                                "beforeImg" : "config/html/images/wispui/wzcx_normal.png",//点击前图标
-                                "afterImg"  : "config/html/images/wispui/wzcx_hover.png", //点击时图标
-                                "disableImg": "",
-                                "enable"    : "true",
-                                "name"      : "测试按钮",
-                                "iconpos"   : "top",//图标位置——top|bottom|left|right|notxt上、下、左、右、无文字
-                                "clickEvent": "",
-                                "url"       : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/queryviolation.jsp"
-                            }
-                        ]
-                    }
-                ]
             }
         ]
     };
@@ -397,19 +303,7 @@ var Login = (function () {
                         console.dir(data);
                         if ( data ) {
                             if ( data.success ) {
-                                Wisp.UI.Init({
-                                    'type' : 'toolbar',
-                                    'datas': toolbarDatas
-                                });
-                                Wisp.UI.Init({
-                                    'type' : 'footbar',
-                                    'datas': footbarDatas
-                                });
-                                Wisp.UI.Init({
-                                    'type' : 'sider',
-                                    'datas': siderDatas
-                                });
-                                //客户端继续登录openfire
+                                loginsuccessCallback(toolbarDatas,footbarDatas,siderDatas); //登陆成功回调
                             } else {
                                 Wisp.UI.progressDialog.remove();
                                 alert('用户名或密码错误！');
@@ -432,6 +326,48 @@ var Login = (function () {
                 });
                 break;
         }
+    }
+    //登陆成功回调函数
+    function loginsuccessCallback(toolbarDatas,footbarDatas,siderDatas){
+        $.ajax({//获取栏目数据源
+            type    : 'post',
+            url     : jnjjApp.config.requestUrl+'/wispcms/channel/tree.do',
+            dataType: 'json',
+            success : function (data) {
+                if ( data.success ) {
+                    var datas = initColInfo(data.msg);//格式化栏目数据源
+                    footbarDatas.footbar[1].subBtns=datas;
+                    Wisp.UI.Init({
+                        'type' : 'toolbar',
+                        'datas': toolbarDatas
+                    });
+                    Wisp.UI.Init({
+                        'type' : 'footbar',
+                        'datas': footbarDatas
+                    });
+                    Wisp.UI.Init({
+                        'type' : 'sider',
+                        'datas': siderDatas
+                    });
+                    //客户端继续登录openfire
+                }
+            },
+            error   : function () {
+                console.log('error')
+            }
+        });
+    }
+    function initColInfo(data) { //格式化栏目数据源函数
+        var colDate = [],//栏目数据，即二级菜单数据
+            colItem;//栏目数据项
+        for ( var i in data ) {
+            colItem = {
+                "name"      : data[i].name,
+                "requestUrl": data[i].url + "Android"
+            };
+            colDate.push(colItem);
+        }
+        return colDate;
     }
     GetLastUser();
 })();
