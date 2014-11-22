@@ -281,31 +281,7 @@ var Login = (function () {
                             ]
                         }
                     };
-                    $.ajax({ //登录验证请求
-                        type    : 'POST',
-                        url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
-                        data    : {pname: username, pwd: password, imei: IMEI},
-                        dataType: 'json'
-                    }).done(function (data) {//登录表单提交
-                        console.dir(data);
-                        if ( data ) {
-                            if ( data.success ) {
-                                loginsuccessCallback(toolbarDatas,footbarDatas,siderDatas); //登陆成功回调
-                            } else {
-                                Wisp.UI.progressDialog.remove();
-                                alert('用户名或密码错误！');
-                                submit.addEventListener('click', loginListener, false);
-                            }
-                        } else {
-                            Wisp.UI.progressDialog.remove();
-                            alert('登录失败!');
-                            submit.addEventListener('click', loginListener, false);
-                        }
-                    }).fail(function (msg) {
-                        Wisp.UI.progressDialog.remove();
-                        alert('登录失败!\n请检查网络是否连接正常！');
-                        submit.addEventListener('click', loginListener, false);
-                    });
+                    getInfoCallback(toolbarDatas,footbarDatas,siderDatas); //初始化footbar数据
                 }).fail(function (data) { //获取个人信息失败
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败！\n请检查网络是否连接正常！');
@@ -314,8 +290,8 @@ var Login = (function () {
                 break;
         }
     }
-    //登陆成功回调函数
-    function loginsuccessCallback(toolbarDatas,footbarDatas,siderDatas){
+    //获取个人信息回调
+    function getInfoCallback(toolbarDatas,footbarDatas,siderDatas){
         $.ajax({//获取栏目数据源
             type    : 'post',
             url     : jnjjApp.config.requestUrl+'/wispcms/channel/tree.do',
@@ -324,6 +300,25 @@ var Login = (function () {
                 if ( data.success ) {
                     var datas = initColInfo(data.msg);//格式化栏目数据源
                     footbarDatas.footbar[1].subBtns=datas;
+                    getcalCallback(toolbarDatas,footbarDatas,siderDatas);
+                }
+            },
+            error   : function () {
+                console.log('error')
+            }
+        });
+    }
+    //获取栏目信息回调函数
+    function getcalCallback(toolbarDatas,footbarDatas,siderDatas){
+        $.ajax({ //登录验证请求
+            type    : 'POST',
+            url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
+            data    : {pname: username, pwd: password, imei: IMEI},
+            dataType: 'json'
+        }).done(function (data) {//登录表单提交
+            console.dir(data);
+            if ( data ) {
+                if ( data.success ) {
                     Wisp.UI.Init({
                         'type' : 'toolbar',
                         'datas': toolbarDatas
@@ -337,11 +332,20 @@ var Login = (function () {
                         'datas': siderDatas
                     });
                     //客户端继续登录openfire
+                } else {
+                    Wisp.UI.progressDialog.remove();
+                    alert('用户名或密码错误！');
+                    submit.addEventListener('click', loginListener, false);
                 }
-            },
-            error   : function () {
-                console.log('error')
+            } else {
+                Wisp.UI.progressDialog.remove();
+                alert('登录失败!');
+                submit.addEventListener('click', loginListener, false);
             }
+        }).fail(function (msg) {
+            Wisp.UI.progressDialog.remove();
+            alert('登录失败!\n请检查网络是否连接正常！');
+            submit.addEventListener('click', loginListener, false);
         });
     }
     function initColInfo(data) { //格式化栏目数据源函数
