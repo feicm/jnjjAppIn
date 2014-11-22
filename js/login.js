@@ -202,7 +202,7 @@ var Login = (function () {
                         "url" : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycar.jsp"
                     },
                     {
-                        "name": "驾照查询",
+                        "name": "驾驶证查询",
                         "url" : "adapter?url=" + jnjjApp.config.requestUrl + "/wispcms/config/html/querycard.jsp"
                     },
                     {
