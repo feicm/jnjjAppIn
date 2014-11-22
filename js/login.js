@@ -280,7 +280,7 @@ var Login = (function () {
                             ]
                         }
                     };
-                    getInfoCallback(toolbarDatas,footbarDatas,siderDatas); //初始化footbar数据
+                    getInfoCallback(toolbarDatas, footbarDatas, siderDatas); //初始化footbar数据
                 }).fail(function (data) { //获取个人信息失败
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败！\n请检查网络是否连接正常！');
@@ -290,16 +290,16 @@ var Login = (function () {
         }
     }
     //获取个人信息回调
-    function getInfoCallback(toolbarDatas,footbarDatas,siderDatas){
+    function getInfoCallback(toolbarDatas, footbarDatas, siderDatas) {
         $.ajax({//获取栏目数据源
             type    : 'post',
-            url     : jnjjApp.config.requestUrl+'/wispcms/channel/tree.do',
+            url     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/wispcms/channel/tree.do',
             dataType: 'json',
             success : function (data) {
                 if ( data.success ) {
                     var datas = initColInfo(data.msg);//格式化栏目数据源
-                    footbarDatas.footbar[1].subBtns=datas;
-                    getcalCallback(toolbarDatas,footbarDatas,siderDatas);
+                    footbarDatas.footbar[1].subBtns = datas;
+                    getcalCallback(toolbarDatas, footbarDatas, siderDatas);
                 }
             },
             error   : function () {
@@ -307,8 +307,9 @@ var Login = (function () {
             }
         });
     }
+
     //获取栏目信息回调函数
-    function getcalCallback(toolbarDatas,footbarDatas,siderDatas){
+    function getcalCallback(toolbarDatas, footbarDatas, siderDatas) {
         $.ajax({ //登录验证请求
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
@@ -347,6 +348,7 @@ var Login = (function () {
             submit.addEventListener('click', loginListener, false);
         });
     }
+
     function initColInfo(data) { //格式化栏目数据源函数
         var colDate = [],//栏目数据，即二级菜单数据
             colItem;//栏目数据项
@@ -359,5 +361,6 @@ var Login = (function () {
         }
         return colDate;
     }
+
     GetLastUser();
 })();
