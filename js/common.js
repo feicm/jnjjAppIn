@@ -250,7 +250,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
                     dataVal = $(this).attr('data-value');
                     dataSsxq = $(this).attr('data-ssxq');
                     dataVal && self.dom.attr('data-value', dataVal);
-                    dataSsxq && self.dom.attr('data-ssxq', dataVal);
+                    dataSsxq && self.dom.attr('data-ssxq', dataSsxq);
                     self.dom.val(selVal);
                     self.ulHtml.hide();
                 });
