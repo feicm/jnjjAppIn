@@ -11,7 +11,8 @@ var Login = (function () {
     jnjjApp.btnHover('login-submit', 'login-btn-hover');
     var username,
         password,
-        IMEI;
+        IMEI,
+        VERSION;
     /*
      * 登录函数
      * */
@@ -243,8 +244,9 @@ var Login = (function () {
                     IMEI = '352824061689037';
                     bmdm = '370102';
                 } else {
-                    IMEI = value;
+                    IMEI = value.split('|')[0];
                 }
+                VERSION = value.split('|')[1];//版本号
                 $.ajax({ //获取个人信息
                     type    : 'POST',
                     url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/personal.action",
@@ -313,7 +315,7 @@ var Login = (function () {
         $.ajax({ //登录验证请求
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
-            data    : {pname: username, pwd: password, imei: IMEI},
+            data    : {pname: username, pwd: password, imei: IMEI, version: VERSION},
             dataType: 'json'
         }).done(function (data) {//登录表单提交
             console.dir(data);
