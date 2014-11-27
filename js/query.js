@@ -2,12 +2,13 @@ $(function () {
     var clcxF=document.getElementById("clcx_f"),
         jzcxF=document.getElementById("jzcx_f"),
         wzcxF=document.getElementById("wzcx_f");
+    var jybh=jnjjApp.cookie.GetCookie('JingYuanBianHao');
     //车辆查询
     if(clcxF!==null){
         jnjjApp.btnHover('submit_btn_clcx','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$('#type'),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
             "dataType":'Object',
             "callback":check
         });
@@ -35,7 +36,7 @@ $(function () {
         jnjjApp.btnHover('button','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$('#type'),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/drivinglicense_cardType.action"
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/drivinglicense_cardType.action&"+jybh
         });
         /* 身份证号 默认 3701 by chenruihong 2014-9-5 */
         $("#type").on('change', function (e) {
@@ -53,7 +54,7 @@ $(function () {
         jnjjApp.btnHover('button','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$("#type-01"),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vioViolation_wayType.action"
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vioViolation_wayType.action&"+jybh
         });
         var ini=function(){
             var selectValue = document.getElementById("type-01").value;
@@ -62,7 +63,7 @@ $(function () {
                 document.getElementById("a2").style.display = 'none';
                 var Select=new jnjjApp.Select({
                     "dom":$("#hpzl"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
                     "dataType":'Object'
                 });
             }
@@ -71,7 +72,7 @@ $(function () {
                 document.getElementById("a1").style.display = "none";
                 var Select=new jnjjApp.Select({
                     "dom":$("#zjlx"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action"
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&"+jybh
                 });
             }
         };
@@ -82,7 +83,7 @@ $(function () {
                 document.getElementById("a2").style.display = 'none';
                 var Select=new jnjjApp.Select({
                     "dom":$("#hpzl"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action",
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
                     "dataType":'Object'
                 });
             }
@@ -91,7 +92,7 @@ $(function () {
                 document.getElementById("a1").style.display = "none";
                 var Select=new jnjjApp.Select({
                     "dom":$("#zjlx"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action"
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&"+jybh
                 });
             }
         })

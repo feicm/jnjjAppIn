@@ -3,6 +3,7 @@
         curTimeNormal = jnjjApp.CurentTime();
     var curTimeDom = document.getElementById('cur_time'),
         bottomTime = document.getElementById('b_time');
+    var jybh = jnjjApp.cookie.GetCookie('JingYuanBianHao');
     curTimeDom.value = curTime;
     bottomTime.innerText = curTimeNormal;
     var bh,//编号
@@ -27,7 +28,7 @@
     $.ajax({
         type    : 'POST',
         url     : url,
-        data    : {wsbh: bmdm},
+        data    : {wsbh: bmdm, jybh: jybh},
         dataType: 'json'
     }).done(function (data) {
         if ( data.success ) {
@@ -47,9 +48,9 @@
     var hpzl = jnjjApp.cookie.GetCookie("HaoPaiZhongLei");
     var wfddVal = jnjjApp.cookie.GetCookie("WeiFaDiDian");
     var oHpys = {
-        "黄": "08",
-        "蓝": "09",
-        "黑": "10",
+        "黄" : "08",
+        "蓝" : "09",
+        "黑" : "10",
         "其他": "11"
     };
     csys = document.getElementById('color');
@@ -63,7 +64,7 @@
         $.ajax({
             type    : 'POST',
             url     : querycarUrl,
-            data    : {hpzl: hpzl, hphm: hphm, keyword: "json"},
+            data    : {hpzl: hpzl, hphm: hphm, keyword: "json", jybh: jybh},
             dataType: 'json'
         }).done(function (data) {
             if ( data.success ) {
