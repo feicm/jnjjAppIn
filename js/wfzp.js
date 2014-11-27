@@ -6,7 +6,7 @@ $(function () {
     var jybh=jnjjApp.cookie.GetCookie('JingYuanBianHao');
     var Select1 = new jnjjApp.Select({//实例化下拉数据  --车牌类型
         "dom"     : $("#type"),
-        "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
+        "url"     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&jybh="+jybh,
         "dataType": 'Object'
     });
     var submitBtn = $('#submit_btn');
@@ -45,7 +45,7 @@ $(function () {
         hphm && jnjjApp.cookie.SetCookie('HaoPaiHaoMa', hphm);
         wfdd && jnjjApp.cookie.SetCookie('WeiFaDiDian', wfdd);
         Wisp.ClientResource.Printer("open", {
-            "targetpage": 'config/html/print.html?action=print&'+jybh
+            "targetpage": 'config/html/print.html?action=print&jybh='+jybh
         });
         submitBtn.css('background', '#0C79BE');
         jnjjApp.btnHover('submit_btn', 'btn-hover'); //提交按钮点击高亮
@@ -79,7 +79,7 @@ $(function () {
             Wisp.UI.progressDialog.show('信息提交中，请稍后...');
             jnjjApp.PostFile = new Wisp.CommenFunc.PostFile({ //实例化上传接口对象
                 "path"    : imgpath,
-                "postUrl" : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/imageUpload.action&"+jybh,
+                "postUrl" : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/imageUpload.action&jybh="+jybh,
                 "callback": "jnjjApp.uploadfileCallback"
             });
             jnjjApp.PostFile.uploadFile();//调用上传函数
