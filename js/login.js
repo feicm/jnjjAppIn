@@ -244,9 +244,9 @@ var Login = (function () {
                     IMEI = '352824061689037';
                     bmdm = '370102';
                 } else {
-                    IMEI = value.split('|')[0];
+                    IMEI = value.split('|')[0].split(':')[1];
                 }
-                VERSION = value.split('|')[1];//版本号
+                VERSION = value.split('|')[1].split(':')[1];//版本号
                 $.ajax({ //获取个人信息
                     type    : 'POST',
                     url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/personal.action",
