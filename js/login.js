@@ -30,7 +30,7 @@ var Login = (function () {
                 submit.addEventListener('click', loginListener, false);
             } else {
                 Wisp.UI.progressDialog.show('登录中，请稍后！');
-                jnjjApp.cookie.SetCookie('JingYuanBianHao', username);
+                //jnjjApp.cookie.SetCookie('JingYuanBianHao', username);
                 //jnjjApp.sendPersonalInfo('Device'); //login debug
                 jnjjApp.PersonalInfo = new Wisp.ClientResource.PersonalInfo({
                     "username"     : username,
@@ -260,6 +260,7 @@ var Login = (function () {
                     msg.bmdmt && (bmdm = msg.bmdmt);
                     jnjjApp.cookie.SetCookie('BuMenDaiMa', bmdm);
                     jnjjApp.cookie.SetCookie('XingMing', nameCH);
+                    jnjjApp.cookie.SetCookie('JingYuanBianHao', username);
                     /*
                      * 侧栏（个人中心数据格式）
                      * */
@@ -296,6 +297,7 @@ var Login = (function () {
         $.ajax({//获取栏目数据源
             type    : 'post',
             url     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/wispcms/channel/tree.do',
+            data    : {'jybh': jnjjApp.get.cookie.GetCookie('JingYuanBianHao')},
             dataType: 'json',
             success : function (data) {
                 if ( data.success ) {
