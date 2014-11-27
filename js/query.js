@@ -8,7 +8,7 @@ $(function () {
         jnjjApp.btnHover('submit_btn_clcx','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$('#type'),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&jybh="+jybh,
             "dataType":'Object',
             "callback":check
         });
@@ -36,7 +36,7 @@ $(function () {
         jnjjApp.btnHover('button','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$('#type'),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/drivinglicense_cardType.action&"+jybh
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/drivinglicense_cardType.action&jybh="+jybh
         });
         /* 身份证号 默认 3701 by chenruihong 2014-9-5 */
         $("#type").on('change', function (e) {
@@ -54,7 +54,7 @@ $(function () {
         jnjjApp.btnHover('button','btn-hover');
         var Select=new jnjjApp.Select({
             "dom":$("#type-01"),
-            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vioViolation_wayType.action&"+jybh
+            "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vioViolation_wayType.action&jybh="+jybh
         });
         var ini=function(){
             var selectValue = document.getElementById("type-01").value;
@@ -63,7 +63,7 @@ $(function () {
                 document.getElementById("a2").style.display = 'none';
                 var Select=new jnjjApp.Select({
                     "dom":$("#hpzl"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&jybh="+jybh,
                     "dataType":'Object'
                 });
             }
@@ -72,7 +72,7 @@ $(function () {
                 document.getElementById("a1").style.display = "none";
                 var Select=new jnjjApp.Select({
                     "dom":$("#zjlx"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&"+jybh
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&jybh="+jybh
                 });
             }
         };
@@ -83,7 +83,7 @@ $(function () {
                 document.getElementById("a2").style.display = 'none';
                 var Select=new jnjjApp.Select({
                     "dom":$("#hpzl"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&"+jybh,
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/vehicle_carType.action&jybh="+jybh,
                     "dataType":'Object'
                 });
             }
@@ -92,7 +92,7 @@ $(function () {
                 document.getElementById("a1").style.display = "none";
                 var Select=new jnjjApp.Select({
                     "dom":$("#zjlx"),
-                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&"+jybh
+                    "url":"adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/violation_cardType.action&jybh="+jybh
                 });
             }
         })
