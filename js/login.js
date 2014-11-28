@@ -297,7 +297,7 @@ var Login = (function () {
         $.ajax({//获取栏目数据源
             type    : 'post',
             url     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/wispcms/channel/tree.do',
-            data    : {'jybh': jnjjApp.get.cookie.GetCookie('JingYuanBianHao')},
+            data    : {'jybh': jnjjApp.cookie.GetCookie('JingYuanBianHao')},
             dataType: 'json',
             success : function (data) {
                 if ( data.success ) {
