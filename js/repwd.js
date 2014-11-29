@@ -1,5 +1,6 @@
 (function () {
     var repwdbtn = document.getElementById('pwd-submit');
+    var jybh=jnjjApp.cookie.GetCookie('JingYuanBianHao');
     if ( repwdbtn !== null ) {
         var repwdListener = function () {
             var oldpwd,
@@ -23,19 +24,15 @@
                 } else if ( newpwd.length < 6 ) {
                     alert("长度不能少于6!");
                     repwdbtn.addEventListener('click', repwdListener, false);
-                    return false;
                 } else if ( !reg01.test(newpwd) ) {
                     alert("至少要包含一个字母!");
                     repwdbtn.addEventListener('click', repwdListener, false);
-                    return false;
                 } else if ( !reg02.test(newpwd) ) {
                     alert("至少要包含一个数字!");
                     repwdbtn.addEventListener('click', repwdListener, false);
-                    return false;
                 } else if ( reg03.test(newpwd) ) {
                     alert("新密码只允许包含字母和数字!");
                     repwdbtn.addEventListener('click', repwdListener, false);
-                    return false;
                 } else if ( confirmpwd !== newpwd ) {
                     alert('两次输入密码不一致！');
                     repwdbtn.addEventListener('click', repwdListener, false)
@@ -44,7 +41,7 @@
                         type    : 'POST',
                         url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/modifypwd.action",
                         // data to be added to query string:
-                        data    : { 'pname': '007777', oldpwd: oldpwd, newpwd: newpwd, confirmpwd: confirmpwd },
+                        data    : { 'pname': jybh, oldpwd: oldpwd, newpwd: newpwd, confirmpwd: confirmpwd },
                         // type of data we are expecting in return:
                         dataType: 'json',
                         success : function (data) {
