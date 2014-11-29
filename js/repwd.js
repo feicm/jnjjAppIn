@@ -46,14 +46,15 @@
                         dataType: 'json',
                         success : function (data) {
                             var success = data.success;
-                            if ( success === 'true' ) {
+                            console.log(typeof success);
+                            if ( success === true ) {
                                 alert('密码修改成功！');
                                 repwdbtn.addEventListener('click', repwdListener, false);
                                 document.getElementById('oldpwd').value = '';
                                 document.getElementById('newpwd').value = '';
                                 document.getElementById('confirmpwd').value = '';
                             }
-                            if ( success === 'false' ) {
+                            if ( success === false ) {
                                 if ( data.msg === 'ERROR_CONFIRM_PASSWORD' ) alert('两次密码输入不一致！');
                                 if ( data.msg === 'ERROR_OLD_PASSWORD' ) alert('原密码错误！');
                                 if ( data.msg === 'ERROR_NEW_PASSWORD' ) alert('新密码只允许包含字母和数字！');
