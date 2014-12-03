@@ -239,12 +239,16 @@ body {
 }
 
 .m-3-2 .bd .tt {
-    padding     : 2px 1px;
-    font-weight : bold;
+    padding: 2px 1px;
+    font-weight: bold;
+    margin-bottom: .5em;
 }
 
 .m-3-2 .bd .tips {
-    color : #878787;
+    color: #878787;
+    padding-bottom: 3px;
+    border-bottom: 1px solid #DDD;
+    box-shadow: 1px 1px 1px #FFF;
 }
 
 .m-3-2 .bd .ct {
