@@ -256,6 +256,8 @@ body {
 .m-3-2 .bd .ct span,.m-3-2 .bd .ct h2 {
     font-size : 18px !important;
     font-family: 'Microsoft YaHei',sans-serif !important;
+    line-height: normal !important;
+    display: inline;
 }
 
 .m-3-2 .bd .ct p {
