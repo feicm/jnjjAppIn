@@ -253,8 +253,9 @@ body {
     line-height : 1.5;
 }
 
-.m-3-2 .bd .ct span {
+.m-3-2 .bd .ct span,.m-3-2 .bd .ct h2 {
     font-size : 18px !important;
+    font-family: 'Microsoft YaHei',sans-serif !important;
 }
 
 .m-3-2 .bd .ct p {
@@ -262,11 +263,13 @@ body {
 }
 
 .m-3-2 .bd .ct img {
-    max-width  : 90%;
-    margin     : 1em auto !important;
-    padding    : 3px !important;
-    background : #FFF;
-    border     : 1px solid #CCC !important;
+    float: left;
+    max-width: 90% !important;
+    margin: 1em 5% !important;
+    padding: 3px !important;
+    background: #FFF;
+    border: 1px solid #CCC !important;
+    height: auto !important;
 }
 
 .m-3-2 .ft {
