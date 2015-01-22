@@ -22,10 +22,10 @@
           <input type="password" class="ipt-pw" name="pwd" id="password"/>
 		  <label class="bgi-pw"></label>
       </div>
-      <!--<div class='mgt10 fl'>
+      <div class='mgt10 fl' style='display:none'>
           <input type="checkbox" id="ck_rem"/>
           <label class="rem-pw fs8" for="ck_rem">记住密码</label>
-      </div>-->
+      </div>
       <input class="btn" type='button' value='登录' id="login-submit" />
      
   </form>
