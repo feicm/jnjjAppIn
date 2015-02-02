@@ -171,6 +171,7 @@
         };
         var SendToWISPClient = function (method, type, param, async) {
             var urlPre = "AjAxSocketIFC/" + type + "?";
+            var App=App ||{};
             if ( App && App.localHost !== undefined ) {
                 urlPre = App.localHost + '/' + urlPre;
             }
@@ -331,7 +332,8 @@
             var QR = {
                 "init": function () {
                     var index = event;
-                    callback && (this.callback = callback);
+                    this.domId=opts.domId;//input id
+                    callback && (this.callback = callback); //回调函数
                     type[index] && this[type[index]]();
                 },
                 "open": function () {
