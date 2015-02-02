@@ -24,6 +24,9 @@
                 case 'footbar':
                     new Footbar(datas);
                     break;
+                case 'toolbar':
+                    new Toolbar(datas);
+                    break;
                 case 'sider':
                     new Sider(datas);
                     break;
@@ -44,6 +47,17 @@
         Footbar.prototype._init = function () {
             console.dir(this._config);
             Wisp.CommenFunc.SendToWISPClient('post', '@@footbar@@', JSON.stringify(this._config), false);
+        };
+        /*
+         * UI.Toolbar 工具栏组件
+         * */
+        var Toolbar = function (opts) {
+            this._config = opts;//ui配置信息
+            this._init();
+        };
+        Toolbar.prototype._init = function () {
+            console.dir(this._config);
+            Wisp.CommenFunc.SendToWISPClient('post', '@@toolbar@@', JSON.stringify(this._config), false);
         };
         /*
          * UI.Sider 侧边栏组件
