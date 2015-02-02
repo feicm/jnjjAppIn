@@ -29,8 +29,11 @@
         <label for="type">证件类型</label>
         <select class="f-input select" id="type" name="zjlx">
         </select>
-        <label for="num">证件号码</label>
-        <input id="num" name="zjhm" class="f-input" placeholder="请输入证件号码" value="3740016869582"/>  
+        <div class="ip-c">
+            <label for="num">证件号码</label>
+            <input id="num" name="zjhm" class="f-input" placeholder="请输入证件号码" value="3740016869582"/>
+            <a class="btn" id='qrcode'>扫一扫</a>
+        </div>
 		<input type="submit" class="btn block" value='提交' id="button" />
         <input type="hidden" name="url" value="http://rjsoft.gnway.cc:9093/wisp_platform/platform/drivinglicense_viewDrivinglicense.action" />
     </form>
