@@ -3,14 +3,7 @@
     /*
      * 客户端回调函数数据对象集
      * */
-    Wisp.ClientCallback = {
-        setBaseDomain : function (baseDomain) { //(客户端)当前域写入localstorage
-            App.LS.set("App_baseDomain", baseDomain);
-        },
-        fillQRcodeText: function (domId, txt) {
-            $('#' + domId).text(txt);
-        }
-    };
+    Wisp.ClientCallback = {};
     /*
      * 客户端UI组件对象集
      * */
@@ -19,6 +12,15 @@
             var type = opts.type,
                 datas = opts.datas;
             switch ( type ) {
+                case 'button':
+                    new Button(datas);
+                    break;
+                case 'listview':
+                    new Listview(datas);
+                    break;
+                case 'toolbar':
+                    new Toolbar(datas);
+                    break;
                 case 'footbar':
                     new Footbar(datas);
                     break;
@@ -31,6 +33,39 @@
                 default:
                     console.log('地球已经不适合你，回火星去吧！！！');
             }
+        };
+        /*
+         * UI.Button 按钮组件
+         * */
+        var Button = function (opts) {
+            this._config = opts;//ui配置信息
+            this._init();
+        };
+        Button.prototype._init = function () {
+            console.dir(JSON.stringify(this._config));
+            Wisp.CommenFunc.SendToWISPClient('post', '@@button@@', JSON.stringify(this._config), false);
+        };
+        /*
+         * UI.Listview 列表组件
+         * */
+        var Listview = function (opts) {
+            this._config = opts;//ui配置信息
+            this._init();
+        };
+        Listview.prototype._init = function () {
+            console.dir(this._config);
+            Wisp.CommenFunc.SendToWISPClient('post', '@@listview@@', JSON.stringify(this._config), false);
+        };
+        /*
+         * UI.Toolbar 工具栏组件
+         * */
+        var Toolbar = function (opts) {
+            this._config = opts;//ui配置信息
+            this._init();
+        };
+        Toolbar.prototype._init = function () {
+            console.dir(this._config);
+            Wisp.CommenFunc.SendToWISPClient('post', '@@toolbar@@', JSON.stringify(this._config), false);
         };
         /*
          * UI.Toolbar 工具栏组件
@@ -65,7 +100,17 @@
             console.dir(this._config);
             Wisp.CommenFunc.SendToWISPClient('post', '@@dialog@@', JSON.stringify(this._config), false);
         };
-
+        /*
+         * UI.Dialog 对话框组件
+         * */
+        var Tab = function (opts) {
+            this._config = opts;//ui配置信息
+            this._init();
+        };
+        Tab.prototype._init = function () {
+            console.dir(this._config);
+            Wisp.CommenFunc.SendToWISPClient('post', '@@tab@@', JSON.stringify(this._config), false);
+        };
         var progressDialog = {   //加载对话框
             "show"  : function (content) {
                 this.content = content;
@@ -74,39 +119,6 @@
             "remove": function () {
                 Wisp.CommenFunc.SendToWISPClient('post', '@@dismissProgressDialog@@', '', false);
             } //移除加载对话框
-        };
-        var loginResult = {   //登录结果
-            "success": function () {
-                Wisp.CommenFunc.SendToWISPClient('post', '@@loginSuccess@@', '', false);
-            }, //成功
-            "fail"   : function () {
-                Wisp.CommenFunc.SendToWISPClient('post', '@@loginFail@@', '', false);
-            } //失败
-        };
-        var Webview = {   //webview操作 即window 操作
-            "pageId"       : null,
-            "init"         : function (opts) {
-                this.pageId = opts.PageId;
-                this.callback = opts.callback || null;
-                return this;
-            },
-            "close"        : function () {
-                Wisp.CommenFunc.SendToWISPClient('post', '@@closeWebviewWidget@@', JSON.stringify(this), false);
-            }, //关闭指定webview
-            "refresh"      : function () {
-                Wisp.CommenFunc.SendToWISPClient('post', '@@refreshWebviewWidget@@', JSON.stringify(this), false);
-            }, //刷新指定webview
-            "getBaseDomain": function (callback) {
-                this.callback = callback || null;
-                Wisp.CommenFunc.SendToWISPClient('post', '@@getBaseDomain@@', JSON.stringify(this), false);
-            }
-        };
-        var Gallery = {   //打开轮播
-            "open": function (opts) {
-                this.currentPage = opts.active + '';
-                this.images = opts.images;
-                Wisp.CommenFunc.SendToWISPClient('post', '@@openGallery@@', JSON.stringify(this), false);
-            }
         };
         var fullScreen = {   //全屏控制
             "open" : function () {
@@ -123,9 +135,6 @@
         return {
             "Init"          : Init, //初始化
             "progressDialog": progressDialog,//加载对话框
-            "loginResult"   : loginResult,//登录结果
-            "Webview"       : Webview,//webview操作
-            "Gallery"       : Gallery,//实例化相册
             "fullScreen"    : fullScreen,//TODO 全屏
             "zoomWindow"    : zoomWindow //TODO 窗口缩放
         }
@@ -142,7 +151,7 @@
             } catch ( e ) {
                 var ActiveXName = ['MSXML2.XMLHttp.6.0', 'MSXML2.XMLHttp.3.0',
                     'MSXML2.XMLHttp.5.0', 'MSXML2.XMLHttp.4.0', 'Msxml2.XMLHTTP',
-                    'MSXML.XMLHttp', 'Microsoft.XMLHTTP']
+                    'MSXML.XMLHttp', 'Microsoft.XMLHTTP'];
 
                 function XMLHttpActiveX() {
                     var e;
@@ -171,10 +180,6 @@
         };
         var SendToWISPClient = function (method, type, param, async) {
             var urlPre = "AjAxSocketIFC/" + type + "?";
-            var App = App || {};
-            if ( App && App.localHost !== undefined ) {
-                urlPre = App.localHost + '/' + urlPre;
-            }
             if ( method == 'get' && param != '' ) {
                 urlPre += encodeURIComponent(param) + '&';
             }
@@ -216,11 +221,6 @@
             }
             return result;
         };
-
-        function getRandom() {//获取0-100随机数
-            return parseInt(Math.random() * 100);
-        }
-
         /*
          * 附件上传接口
          * @param path 文件路径
@@ -246,7 +246,6 @@
         };
         return {
             "SendToWISPClient": SendToWISPClient,//网客户端发送资源共有方法
-            "getRandom"       : getRandom,//获取0-100随机数
             "PostFile"        : PostFile//通用上传接口
         }
     })();
@@ -313,41 +312,10 @@
             P.init();//打印接口初始化
             return P;//返回打印对象
         };
-        /*
-         * 二维码功能
-         * @param event 事件名称
-         * @param opts 接口参数
-         * @param callback 回调函数
-         * @return QRcode 返回二维码对象
-         * */
-        var QRcode = function (event, opts, callback) {
-            var type = {
-                "open": "open"
-            };//event事件映射表
-            if ( arguments.length < 3 ) {
-                if ( !arguments[1] instanceof Object ) {
-                    callback = arguments[1]
-                }
-            }
-            var QR = {
-                "init": function () {
-                    var index = event;
-                    this.domId = opts.domId;//input id
-                    callback && (this.callback = callback); //回调函数
-                    type[index] && this[type[index]]();
-                },
-                "open": function () {
-                    Wisp.CommenFunc.SendToWISPClient('post', '@@openQRcode@@', JSON.stringify(this), false);
-                }
-            };
-            QR.init();//二维码接口初始化
-            return QR;//返回二维码对象
-        };
         return {
             "Camera"      : Camera, //调用照相机
             "PersonalInfo": PersonalInfo, //获取个人信息
-            "Printer"     : Printer, //打印接口
-            "QRcode"      : QRcode //二维码扫描功能
+            "Printer"     : Printer //打印接口
         }
     })();
 })();
