@@ -101,17 +101,6 @@ var Login = (function () {
     }
 
     /*
-     * 工具栏数据格式
-     * */
-    var toolbarDatas = {
-        "toolbar": {
-            "title"   : "济南交警",
-            "leftBtn" : {},//工具栏左侧按钮配置，可选
-            "rightBtn": {}//工具栏右侧按钮配置，可选
-        }
-    };
-
-    /*
      *  页脚主导航数据格式，3-5组，不超过5组
      * */
     var footbarDatas = {
@@ -283,7 +272,7 @@ var Login = (function () {
                             ]
                         }
                     };
-                    getInfoCallback(toolbarDatas, footbarDatas, siderDatas); //初始化footbar数据
+                    getInfoCallback(footbarDatas, siderDatas); //初始化footbar数据
                 }).fail(function (data) { //获取个人信息失败
                     Wisp.UI.progressDialog.remove();
                     alert('登录失败！\n请检查网络是否连接正常！');
@@ -293,7 +282,7 @@ var Login = (function () {
         }
     }
     //获取个人信息回调
-    function getInfoCallback(toolbarDatas, footbarDatas, siderDatas) {
+    function getInfoCallback( footbarDatas, siderDatas) {
         $.ajax({//获取栏目数据源
             type    : 'post',
             url     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/wispcms/channel/tree.do',
@@ -303,7 +292,7 @@ var Login = (function () {
                 if ( data.success ) {
                     var datas = initColInfo(data.msg);//格式化栏目数据源
                     footbarDatas.footbar[1].subBtns = datas;
-                    getcalCallback(toolbarDatas, footbarDatas, siderDatas);
+                    getcalCallback( footbarDatas, siderDatas);
                 }
             },
             error   : function () {
@@ -313,7 +302,7 @@ var Login = (function () {
     }
 
     //获取栏目信息回调函数
-    function getcalCallback(toolbarDatas, footbarDatas, siderDatas) {
+    function getcalCallback( footbarDatas, siderDatas) {
         $.ajax({ //登录验证请求
             type    : 'POST',
             url     : "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/login.action",
@@ -323,10 +312,6 @@ var Login = (function () {
             console.dir(data);
             if ( data ) {
                 if ( data.success ) {
-                    Wisp.UI.Init({
-                        'type' : 'toolbar',
-                        'datas': toolbarDatas
-                    });
                     Wisp.UI.Init({
                         'type' : 'footbar',
                         'datas': footbarDatas
