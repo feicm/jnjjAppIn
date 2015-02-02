@@ -4,11 +4,11 @@
      * 客户端回调函数数据对象集
      * */
     Wisp.ClientCallback = {
-        setBaseDomain: function (baseDomain) { //(客户端)当前域写入localstorage
+        setBaseDomain : function (baseDomain) { //(客户端)当前域写入localstorage
             App.LS.set("App_baseDomain", baseDomain);
         },
-        fillQRcodeText:function(domId,txt){
-             $('#'+domId).text(txt);
+        fillQRcodeText: function (domId, txt) {
+            $('#' + domId).text(txt);
         }
     };
     /*
@@ -171,7 +171,7 @@
         };
         var SendToWISPClient = function (method, type, param, async) {
             var urlPre = "AjAxSocketIFC/" + type + "?";
-            var App=App ||{};
+            var App = App || {};
             if ( App && App.localHost !== undefined ) {
                 urlPre = App.localHost + '/' + urlPre;
             }
@@ -324,15 +324,15 @@
             var type = {
                 "open": "open"
             };//event事件映射表
-            if(arguments.length<3){
-                if(!arguments[1] instanceof Object){
-                    callback=arguments[1]
+            if ( arguments.length < 3 ) {
+                if ( !arguments[1] instanceof Object ) {
+                    callback = arguments[1]
                 }
             }
             var QR = {
                 "init": function () {
                     var index = event;
-                    this.domId=opts.domId;//input id
+                    this.domId = opts.domId;//input id
                     callback && (this.callback = callback); //回调函数
                     type[index] && this[type[index]]();
                 },
