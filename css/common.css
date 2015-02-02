@@ -239,16 +239,16 @@ body {
 }
 
 .m-3-2 .bd .tt {
-    padding: 2px 1px;
-    font-weight: bold;
-    margin-bottom: .5em;
+    padding       : 2px 1px;
+    font-weight   : bold;
+    margin-bottom : .5em;
 }
 
 .m-3-2 .bd .tips {
-    color: #878787;
-    padding-bottom: 3px;
-    border-bottom: 1px solid #DDD;
-    box-shadow: 0 1px 1px #FFF;
+    color          : #878787;
+    padding-bottom : 3px;
+    border-bottom  : 1px solid #DDD;
+    box-shadow     : 0 1px 1px #FFF;
 }
 
 .m-3-2 .bd .ct {
@@ -257,11 +257,11 @@ body {
     line-height : 1.5;
 }
 
-.m-3-2 .bd .ct span,.m-3-2 .bd .ct h2 {
-    font-size : 18px !important;
-    font-family: 'Microsoft YaHei',sans-serif !important;
-    line-height: normal !important;
-    display: inline;
+.m-3-2 .bd .ct span, .m-3-2 .bd .ct h2 {
+    font-size   : 18px !important;
+    font-family : 'Microsoft YaHei', sans-serif !important;
+    line-height : normal !important;
+    display     : inline;
 }
 
 .m-3-2 .bd .ct p {
@@ -269,13 +269,13 @@ body {
 }
 
 .m-3-2 .bd .ct img {
-    float: left;
-    max-width: 90% !important;
-    margin: 1em 4% !important;
-    padding: 3px !important;
-    background: #FFF;
-    border: 1px solid #CCC !important;
-    height: auto !important;
+    float      : left;
+    max-width  : 90% !important;
+    margin     : 1em 4% !important;
+    padding    : 3px !important;
+    background : #FFF;
+    border     : 1px solid #CCC !important;
+    height     : auto !important;
 }
 
 .m-3-2 .ft {
@@ -826,4 +826,8 @@ body {
 .wzcx-result li a:hover, .wzcx-result li a:active {
     background-color : #Fdfdfd;
     color            : #555;
+}
+
+#qrcode {
+    background : #0C79BE
 }
