@@ -8,7 +8,7 @@
             App.LS.set("App_baseDomain", baseDomain);
         },
         fillQRcodeText: function (domId, txt) {
-            $('#' + domId).val(txt);
+            document.getElementById(domId).value=txt;
         }
     };
     /*
