@@ -8,8 +8,6 @@
             App.LS.set("App_baseDomain", baseDomain);
         },
         fillQRcodeText: function (domId, txt) {//二维码扫描回调
-            console.log(domId);
-            console.log(txt);
             var input=document.getElementById(domId);
             input.value=txt;
         }
