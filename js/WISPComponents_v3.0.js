@@ -8,8 +8,6 @@
             App.LS.set("App_baseDomain", baseDomain);
         },
         fillQRcodeText: function (domId, txt) {
-            console.log(domid);
-            console.log(txt);
             $('#' + domId).val(txt);
         }
     };
