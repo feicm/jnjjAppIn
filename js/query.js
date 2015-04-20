@@ -39,11 +39,7 @@ $(function () {
             "url": "adapter?open&url=" + jnjjApp.config.requestUrl + "/wisp_platform/platform/drivinglicense_cardType.action&jybh=" + jybh
         });
         var qrcode = $('#qrcode');
-        qrcode.on('click', function () {//调用二维码扫描并填充
-            var $this = $(this);
-            $this.off('click');
-            QRcodeListener($this, 'num');
-        });
+        qrcode.hide();
         function QRcodeListener(btn, id) {
             Wisp.ClientResource.QRcode('open', {
                 domId: id
@@ -58,10 +54,19 @@ $(function () {
             var selectValue = document.getElementById("type").value;
             if ( selectValue == 1 || selectValue == 0 ) {
                 qrcode.hide();
+                qrcode.off('click');
                 if ( selectValue == 1 ) {
                     document.getElementById("num").value = '3701';
+                } else {
+                    document.getElementById("num").value = '';
                 }
             } else {
+                qrcode.show();
+                qrcode.on('click', function () {//调用二维码扫描并填充
+                    var $this = $(this);
+                    $this.off('click');
+                    QRcodeListener($this, 'num');
+                });
                 document.getElementById("num").value = '';
             }
 
