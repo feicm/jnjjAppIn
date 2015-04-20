@@ -40,24 +40,27 @@ $(function () {
         });
         var qrcode = $('#qrcode');
         qrcode.on('click', function () {//调用二维码扫描并填充
-            var $this=$(this);
+            var $this = $(this);
             $this.off('click');
-            QRcodeListener($this,'num');
+            QRcodeListener($this, 'num');
         });
-        function QRcodeListener(btn,id) {
+        function QRcodeListener(btn, id) {
             Wisp.ClientResource.QRcode('open', {
                 domId: id
             }, 'Wisp.ClientCallback.fillQRcodeText');
-            btn.on('click',function(){
-                QRcodeListener(btn,id);
+            btn.on('click', function () {
+                QRcodeListener(btn, id);
             })
         }
 
         /* 身份证号 默认 3701 by chenruihong 2014-9-5 */
         $("#type").on('change', function (e) {
             var selectValue = document.getElementById("type").value;
-            if ( selectValue == 1 ) {
-                document.getElementById("num").value = '3701';
+            if ( selectValue == 1 || selectValue == 0 ) {
+                qrcode.hide();
+                if ( selectValue == 1 ) {
+                    document.getElementById("num").value = '3701';
+                }
             } else {
                 document.getElementById("num").value = '';
             }
