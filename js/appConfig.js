@@ -5,7 +5,7 @@ var jnjjApp = jnjjApp || {}; //济南交警APP全局对象
         "httpPort"      : "9093",
         "requestUrl"    : "http://rjsoft.gnway.cc:9093",
         "openfirePort"  : "5222",
-        "fileServerPort": "9087"
+        "fileServerPort": "9088"
     };
 })();
 	

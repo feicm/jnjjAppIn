@@ -296,8 +296,8 @@ var Login = (function () {
     function getInfoCallback(toolbarDatas, footbarDatas, siderDatas) {
         $.ajax({//获取栏目数据源
             type    : 'post',
-            url     : 'adapter?open&url=' + jnjjApp.config.requestUrl + '/wispcms/channel/tree.do',
-            data    : {'jybh': jnjjApp.cookie.GetCookie('JingYuanBianHao')},
+            url     : '/wispcms/channel/tree.do?id=1',
+            data    : {'jybh': jnjjApp.cookie.GetCookie('JingYuanBianHao'),'cid': '2436'},
             dataType: 'json',
             success : function (data) {
                 if ( data.success ) {
